@@ -18,4 +18,11 @@
 #
 class Organization < ApplicationRecord
   belongs_to :city
+
+  validates :name, presence: true
+
+  scope :verified, -> { where(verified: true) }
+  scope :unverified, -> { where(verified: false) }
+  scope :unverified_and_not_archived, -> { where(verified: false, archived: false) }
+  scope :archived, -> { where(verified: true) }
 end
