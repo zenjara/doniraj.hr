@@ -1,0 +1,35 @@
+<h1>Doniraj.hr</h1>
+<p>blabla bla bla bla</p>
+
+<div data-controller="organization">
+  <%= form_with model: @organization, class: "suggestion_form",
+                data: { target: 'organization.form', action: 'ajax:success->organization#submitSuccess
+                                                              ajax:error->organization#showError' } do |f| %>
+
+    <p>
+      <%= f.label 'Ime organizacije' %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label 'Grad' %><br>
+      <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)), { class: "js-states" }) %>
+    </p>
+
+    <p>
+      <%= f.label :adresa %><br>
+      <%= f.text_area :address %>
+    </p>
+
+    <p>
+      <%= f.label :iban %><br>
+      <%= f.text_area :iban %>
+    </p>
+
+    <p>
+      <%= f.submit 'Pošalji' %>
+    </p>
+  <% end %>
+</div>
+
+<%= javascript_pack_tag 'organizations.js' %>
