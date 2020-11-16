@@ -34,6 +34,9 @@ gem 'rubocop-rails', require: false
 # Run data migrations alongside schema migrations. Read more: https://github.com/ilyakatz/data-migrate
 gem 'data_migrate'
 
+# A framework for creating flexible, powerful admin dashboards in Rails. Read more: https://github.com/thoughtbot/administrate
+gem "administrate"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

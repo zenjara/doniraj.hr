@@ -24,5 +24,5 @@ class Organization < ApplicationRecord
   scope :verified, -> { where(verified: true) }
   scope :unverified, -> { where(verified: false) }
   scope :unverified_and_not_archived, -> { where(verified: false, archived: false) }
-  scope :archived, -> { where(verified: true) }
+  scope :archived, -> { where(archived: true) }
 end
