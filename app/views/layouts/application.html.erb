@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doniraj2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+    <script>
+        (() => {
+            const application = Stimulus.Application.start()
+
+            application.register("organization", class extends Stimulus.Controller {
+                connect() {
+                    console.log("Hello, Stimulus!", this.element)
+                }
+
+                static targets = [ "form" ]
+
+                submitSuccess(event) {
+
+                    const [xhr] = event.detail
+                    console.log(event)
+                    console.log(xhr)
+
+                    this.formTarget.innerHTML = event.detail[2].response;
+                }
+
+                showError(event) {
+                    const [xhr] = event.detail
+                    this.formTarget.innerHTML = xhr.response;
+                }
+            })
+        })()
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+
+
+</html>
