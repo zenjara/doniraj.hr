@@ -14,12 +14,17 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd apps/doniraj.hr/
-            git stash
             git pull origin develop
             echo "----- Sourcing... -----"
             source ~/.zshrc
             echo "----- Sourced successfully! -----"
+            export DONIRAJ2_DATABASE_USERNAME=${{ secrets.DONIRAJ2_DATABASE_USERNAME }}
+            export DONIRAJ2_DATABASE_PASSWORD=${{ secrets.DONIRAJ2_DATABASE_PASSWORD }}
+            echo "----- ENV VARS ----- "
+            echo $DONIRAJ2_DATABASE_USERNAME
+            echo $DONIRAJ2_DATABASE_PASSWORD
+            echo "----- ENV VARS END ----- "
             bundle install
             RAILS_ENV=production rails db:migrate:with_data
             RAILS_ENV=production rails assets:precompile
-            RAILS_ENV=production puma -C config/puma.rb
+#            RAILS_ENV=production puma -C config/puma.rb
