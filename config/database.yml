@@ -83,6 +83,8 @@ production:
   <<: *default
   host: localhost
   database: doniraj2_production
+  username: <%= ENV['DONIRAJ2_DATABASE_USERNAME'] %>
+  password: <%= ENV['DONIRAJ2_DATABASE_PASSWORD'] %>
 #  username: doniraj2
 #  password: <%#= ENV['DONIRAJ2_DATABASE_PASSWORD'] %>
 
