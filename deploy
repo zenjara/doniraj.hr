@@ -25,4 +25,5 @@ ssh -t root@207.154.201.209 -i $path_to_libra "
   RAILS_ENV=production rails db:migrate:with_data
   RAILS_ENV=production rails assets:precompile
   pkill --pidfile tmp/pids/server.pid
-  RAILS_ENV=production rails s -d"
+  RAILS_ENV=production rails s -d
+  rails s -e production -d"
