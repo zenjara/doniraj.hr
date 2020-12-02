@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+function log {
+  printf "\n\033[2m[$(date)]\033[0m -- \033[1m$@\033[0m\n"
+}
+
+path_to_libra=$1
+
+if [[ -z "$path_to_libra" ]]
+
+then
+  log "Please supply correct parameters"
+  exit 1
+fi
+
+log "Deploying on production server (server)"
+
+ssh -t root@207.154.201.209 -i $path_to_libra "
+  cd apps/doniraj.hr
+  git checkout develop
+  git pull origin develop
+  source ~/.zshrc
+  bundle install
+  RAILS_ENV=production rails db:migrate:with_data
+  RAILS_ENV=production rails assets:precompile
+  bundle exec pumactl -P .pids/puma.pid restart:
+  RAILS_ENV=production puma -C config/puma.rb restart --daemon"
