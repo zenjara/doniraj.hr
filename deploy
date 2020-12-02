@@ -24,5 +24,5 @@ ssh -t root@207.154.201.209 -i $path_to_libra "
   bundle install
   RAILS_ENV=production rails db:migrate:with_data
   RAILS_ENV=production rails assets:precompile
-  bundle exec pumactl -P .pids/puma.pid restart:
-  RAILS_ENV=production puma -C config/puma.rb restart --daemon"
+  kill $(cat tmp/pids/server.pid)
+  RAILS_ENV=production rails s -d"
