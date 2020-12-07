@@ -45,6 +45,9 @@ gem 'data_migrate'
 # A framework for creating flexible, powerful admin dashboards in Rails. Read more: https://github.com/thoughtbot/administrate
 gem "administrate"
 
+# Normalize.css is an alternative to CSS resets. Read more: https://github.com/markmcconachie/normalize-rails
+gem 'normalize-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

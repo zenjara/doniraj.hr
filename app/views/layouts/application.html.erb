@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Doniraj2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>doniraj.hr</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+  <script>
+      (() => {
+          const application = Stimulus.Application.start()
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+          application.register("organization", class extends Stimulus.Controller {
+              connect() {
+                  console.log("Hello, Stimulus!", this.element)
+              }
+
+              static targets = ["form"]
+
+              submitSuccess(event) {
+
+                  const [xhr] = event.detail
+                  console.log(event)
+                  console.log(xhr)
+
+                  this.formTarget.innerHTML = event.detail[2].response;
+              }
+
+              showError(event) {
+                  const [xhr] = event.detail
+                  this.formTarget.innerHTML = xhr.response;
+              }
+          })
+      })()
+  </script>
+  <% if Rails.env.production? %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.dig(:google_analytics) %>"></script>
     <script>
-        (() => {
-            const application = Stimulus.Application.start()
+        window.dataLayer = window.dataLayer || [];
 
-            application.register("organization", class extends Stimulus.Controller {
-                connect() {
-                    console.log("Hello, Stimulus!", this.element)
-                }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-                static targets = [ "form" ]
-
-                submitSuccess(event) {
-
-                    const [xhr] = event.detail
-                    console.log(event)
-                    console.log(xhr)
-
-                    this.formTarget.innerHTML = event.detail[2].response;
-                }
-
-                showError(event) {
-                    const [xhr] = event.detail
-                    this.formTarget.innerHTML = xhr.response;
-                }
-            })
-        })()
+        gtag('js', new Date());
     </script>
-    <% if Rails.env.production? %>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.dig(:google_analytics) %>"></script>
-      <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-      </script>
-    <% end %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-
-
+  <% end %>
+</head>
+<body>
+<%= render partial: 'components/header' %>
+<%= yield %>
+</body>
 </html>

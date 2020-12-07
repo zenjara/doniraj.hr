@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     end
   resources :organizations
 
-  root 'organizations#new'
+  root 'organizations#index'
 end
