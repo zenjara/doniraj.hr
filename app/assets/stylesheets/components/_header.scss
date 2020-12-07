@@ -14,6 +14,7 @@
   }
 
   h2 {
+    color: #FFF;
     font-size: 48px;
     font-weight: 500;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -22,10 +23,10 @@
   .header__nav-actions {
 
     button {
-      border: 3px solid $text-dark-1;
+      border: 3px solid #FFF;
       border-radius: 4px;
       padding: 8px 20px;
-      color: $text-dark-1;
+      color: #FFF;
       background-color: transparent;
       font-size: 16px;
       cursor: pointer;
@@ -44,7 +45,7 @@
     }
 
     a {
-      color: $text-dark-1;
+      color: #FFF;
       font-size: 16px;
       text-decoration: none;
       text-transform: uppercase;
