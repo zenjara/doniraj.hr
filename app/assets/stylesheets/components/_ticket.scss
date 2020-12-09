@@ -1,8 +1,15 @@
 .ticket {
   border-radius: 8px;
   padding: 24px 32px 24px 56px;
+  margin: 32px 0;
   background-color: #FFF;
   box-shadow: 0px 6px 24px rgba(38, 50, 56, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
 
   .ticket__content {
 
@@ -26,13 +33,14 @@
         font-size: 18px;
         font-weight: 400;
         text-decoration: none;
+        transition: color .15s ease;
 
         svg {
           margin-right: 4px;
         }
 
         &:hover {
-          color: #54A378;
+          color: $test-background-green;
         }
 
       }
@@ -60,6 +68,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &.ticket__body--hidden {
+      display: none;
+    }
 
     p {
       margin: 24px 0 16px 0;
