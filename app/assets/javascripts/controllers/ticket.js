@@ -2,7 +2,7 @@
     const application = Stimulus.Application.start();
 
     application.register("ticket", class extends Stimulus.Controller {
-        static targets = ['body'];
+        static targets = ['body', 'organizationId', 'barcode', 'iban'];
 
         connect() {
             console.log("Hello, this is a ticket!", this.element)
@@ -10,25 +10,34 @@
 
         toggleCard() {
             const body = this.bodyTarget;
+            const organizationId = this.organizationIdTarget.value;
+            const barcode = this.barcodeTarget.value;
             body.classList.toggle('ticket__body--hidden');
 
-            var code = "HRVHUB30\nHRK\n" +
-                "000000000012355\n" +
-                "PETAR KORETIĆ\n" +
-                "PREVOJ DD\n" +
-                "10000 Zagreb\n" +
-                "pkoretic J.D.O.O\n" +
-                "PREVOJ DD\n" +
-                "10000 ZAGREB\n" +
-                "HR5041240000000000\n" +
-                "HR01\n" +
-                "7336-68949637625-00001\n" +
-                "COST\n" +
-                "Uplata za 1. mjesec\n";
-
-            var canvas = document.getElementById("barcode");
-            PDF417.draw(code, canvas)
+            var canvas = document.getElementById(`barcode_organization_${organizationId}`);
+            PDF417.draw(barcode, canvas)
         }
+
+        copy(){
+            this.ibanTarget.select()
+            document.execCommand("copy");
+        }
+
+        // const code =
+        //     `HRVHUB30
+        //     HRK
+        //     000000000012355
+        //     PETAR KORETIĆ
+        //     PREVOJ DD
+        //     10000 Zagreb
+        //     QAAP J.D.O.O
+        //     PREVOJ DD
+        //     10000 ZAGREB
+        //     HR5041240000000000
+        //     HR01
+        //     7336-68949637625-00001
+        //     COST
+        //     Uplata za 1. mjesec`
 
         // static targets = ["form"]
 
