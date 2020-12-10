@@ -25,4 +25,20 @@ class Organization < ApplicationRecord
   scope :unverified, -> { where(verified: false) }
   scope :unverified_and_not_archived, -> { where(verified: false, archived: false) }
   scope :archived, -> { where(archived: true) }
+
+  def generate_barcode
+    "HRVHUB30\nHRK\n" +
+        "000000000000000\n" +
+        "\n" +
+        "\n" +
+        "\n" +
+        "#{name}\n" +
+        "#{address}\n" +
+        "#{city.name}\n" +
+        "#{iban}\n" +
+        "\n" +
+        "\n" +
+        "CHAR\n" +
+        "Donacija preko doniraj.hr web stranice\n";
+  end
 end
