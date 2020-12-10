@@ -18,8 +18,8 @@
     </div>
   </div>
 </div>
-<section class="foundations-list">
-  <div class="foundations-list__content">
+<section class="organizations-list">
+  <div class="organizations-list__content">
     <% @organizations.each do |organization| %>
       <%= render partial: 'components/ticket', locals: { organization: organization } %>
     <% end %>
