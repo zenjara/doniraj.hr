@@ -15,6 +15,20 @@ class OrganizationsController < ApplicationController
     render json: @organization.errors, status: :internal_server_error
   end
 
+  def search
+    @organizations = if params[:organization_name].present?
+                       Organization.verified.where('name ILIKE ?', "%#{params[:organization_name]}%")
+                     else
+                       Organization.verified
+                     end
+
+    @organizations = @organizations.where(city_id: params[:city_id]) if params[:city_id].present?
+
+    render json: { html: render_to_string(action: '_organizations_list',
+                                          locals: { organizations: @organizations },
+                                          formats: [:html], layout: false) }
+  end
+
   private
 
   def organization_params

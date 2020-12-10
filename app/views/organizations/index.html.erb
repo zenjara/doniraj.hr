@@ -1,7 +1,9 @@
 <div class="hero">
   <div class="hero__content">
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur. Excepteur
+      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum.</p>
     <div class="cards-wrapper">
       <div class="card card--left">
         <div class="card__image-wrapper">
@@ -24,12 +26,11 @@
     </div>
   </div>
 </div>
+<section>
+  <%= render partial: 'search_filters' %>
+</section>
 <section class="organizations-list">
-  <div class="organizations-list__content">
-    <% @organizations.each do |organization| %>
-      <%= render partial: 'components/ticket', locals: { organization: organization } %>
-    <% end %>
-  </div>
+  <%= render partial: 'organizations_list', locals: { organizations: @organizations } %>
 </section>
 <section class="recommend">
   <div class="recommend-content">

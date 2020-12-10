@@ -1,0 +1,18 @@
+<div class="organizations-search" data-controller="search">
+  <%= form_with url: organizations_search_path,
+                method: :post,
+                data: { action: "ajax:success->search#handleResults", 'search-target': "form" } do |f|
+  %>
+    <div>
+      <%= f.text_field :organization_name, autocomplete: "off", placeholder: "Pretraži udruge", 'data-search-target': 'input', 'data-action': 'keydown->search#search' %>
+      <%= f.select :city_id,
+                   options_for_select(City.pluck(:name, :id)),
+                   { include_blank: true },
+                   { 'data-search-target': 'select',
+                     'data-action': 'change->search#search',
+                     id: 'citySelect',
+                     class: ''
+                   } %>
+    </div>
+  <% end %>
+</div>
