@@ -42,6 +42,9 @@ gem 'rubocop-rails', require: false
 # Run data migrations alongside schema migrations. Read more: https://github.com/ilyakatz/data-migrate
 gem 'data_migrate'
 
+# Create seeds for each environment, share seeds between environments and more. Read more: https://github.com/james2m/seedbank
+gem "seedbank"
+
 # A framework for creating flexible, powerful admin dashboards in Rails. Read more: https://github.com/thoughtbot/administrate
 gem "administrate"
 
