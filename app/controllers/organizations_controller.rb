@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def index
-    @organizations = Organization.verified
+    @pagy, @organizations = pagy(Organization.verified)
   end
 
   def new
@@ -23,6 +23,7 @@ class OrganizationsController < ApplicationController
                      end
 
     @organizations = @organizations.where(city_id: params[:city_id]) if params[:city_id].present?
+    @pagy, @organizations = pagy(@organizations)
 
     render json: { html: render_to_string(action: '_organizations_list',
                                           locals: { organizations: @organizations },

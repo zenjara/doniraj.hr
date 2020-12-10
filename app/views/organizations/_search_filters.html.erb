@@ -1,6 +1,7 @@
 <div class="organizations-search" data-controller="search">
-  <%= form_with url: organizations_search_path,
-                method: :post,
+  <%= form_with url: search_path,
+                method: :get,
+                id: 'searchForm',
                 data: { action: "ajax:success->search#handleResults", 'search-target': "form" } do |f|
   %>
     <div>
