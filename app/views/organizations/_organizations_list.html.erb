@@ -2,4 +2,6 @@
   <% organizations.each do |organization| %>
     <%= render partial: 'components/ticket', locals: { organization: organization } %>
   <% end %>
+
+  <%= render partial: 'pagination', locals: { organizations: @organizations } %>
 </div>

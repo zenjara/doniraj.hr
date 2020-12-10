@@ -4,6 +4,7 @@
 @import "shared/fonts";
 @import "shared/colors";
 @import "components/footer";
+@import "components/pagination";
 @import "components/header";
 @import "components/ticket";
 @import "pages/organizations";
@@ -36,4 +37,8 @@ h6 {
 
 p {
   margin: 0;
+}
+
+.center {
+  text-align: center;
 }
