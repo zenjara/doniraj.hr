@@ -1,0 +1,5 @@
+<div class="organizations-list__content" data-search-target="results" id="organizationsList">
+  <% organizations.each do |organization| %>
+    <%= render partial: 'components/ticket', locals: { organization: organization } %>
+  <% end %>
+</div>

@@ -22,5 +22,9 @@
 (function($){
     $(document).on('ready', function(){
         $('#organization_city_id').select2();
+        $('#citySelect').select2({
+            placeholder: "Mjesto",
+            allowClear: true
+        });
     });
 }(jQuery));
