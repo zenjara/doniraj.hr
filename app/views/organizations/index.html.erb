@@ -6,15 +6,21 @@
       laborum.</p>
     <div class="cards-wrapper">
       <div class="card card--left">
-        <div class="card__image-wrapper"></div>
+        <div class="card__image-wrapper">
+          <%= inline_svg_tag 'step-one-icon.svg', class: 'card__image' %>
+        </div>
         <span>Pronađi udrugu</span>
       </div>
       <div class="card card--major">
-        <div class="card__image-wrapper"></div>
+        <div class="card__image-wrapper">
+          <%= inline_svg_tag 'step-two-icon.svg', class: 'card__image card__image--major' %>
+        </div>
         <span>Doniraj</span>
       </div>
       <div class="card card--right">
-        <div class="card__image-wrapper"></div>
+        <div class="card__image-wrapper">
+          <%= inline_svg_tag 'step-three-icon.svg', class: 'card__image card__image--last' %>
+        </div>
         <span>Razveseli</span>
       </div>
     </div>
@@ -25,4 +31,10 @@
 </section>
 <section class="organizations-list">
   <%= render partial: 'organizations_list', locals: { organizations: @organizations } %>
+</section>
+<section class="recommend">
+  <div class="recommend-content">
+    <h3>Poznaješ više udruga kojima je potrebna pomoć?</h3>
+    <button>Predloži</button>
+  </div>
 </section>

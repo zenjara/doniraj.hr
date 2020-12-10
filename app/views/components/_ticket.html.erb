@@ -6,24 +6,24 @@
       <h4 class="ticket__name">
         <%= organization.name %>
       </h4>
-      <%= inline_svg_tag 'chevron-down', class: "ticket__toggle-action" %>
+      <%= inline_svg_tag 'chevron-down.svg', class: "ticket__toggle-action" %>
     </div>
     <div class="ticket__info">
       <span class="ticket__address"><%= organization.address %>
         , <strong><%= organization.city.name %></strong></span>
       <a href="<%= organization.website %>" target="_blank">
-        <%= inline_svg_tag 'globe' %><%= organization.website %>
+        <%= inline_svg_tag 'globe.svg' %><%= organization.website %>
       </a>
     </div>
     <div class="ticket__body ticket__body--hidden" data-ticket-target="body">
       <p><%= organization.description %></p>
       <div>
         <div class="ticket__contact">
-          <%= inline_svg_tag 'phone' %>
+          <%= inline_svg_tag 'phone.svg' %>
           <span><%= organization.telephone %></span>
         </div>
         <div class="ticket__contact">
-          <a href="mailto:<%= organization.email %>"><%= inline_svg_tag 'email' %><%= organization.email %></a>
+          <a href="mailto:<%= organization.email %>"><%= inline_svg_tag 'email.svg' %><%= organization.email %></a>
         </div>
       </div>
       <hr/>
@@ -32,7 +32,7 @@
           <div class="payment-label">Iban</div>
           <div class="payment-content" data-action="click->ticket#copy">
             <input data-ticket-target="iban" value="<%= organization.iban %>" readonly/>
-            <%= inline_svg_tag 'copy' %>
+            <%= inline_svg_tag 'copy.svg' %>
           </div>
         </div>
         <div class="ticket__payment-info">
