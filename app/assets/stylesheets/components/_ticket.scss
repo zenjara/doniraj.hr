@@ -112,13 +112,9 @@
   .ticket__footer {
     display: flex;
     align-items: baseline;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     color: $text-dark-1;
-
-    .ticket__payment-info:first-child {
-      flex-grow: 2
-    }
 
     .payment-label {
       margin-bottom: 16px;

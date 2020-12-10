@@ -4,9 +4,7 @@
     application.register("ticket", class extends Stimulus.Controller {
         static targets = ['body', 'organizationId', 'barcode', 'iban'];
 
-        connect() {
-            console.log("Hello, this is a ticket!", this.element)
-        }
+        connect() {}
 
         toggleCard() {
             const body = this.bodyTarget;
@@ -15,11 +13,11 @@
             body.classList.toggle('ticket__body--hidden');
 
             var canvas = document.getElementById(`barcode_organization_${organizationId}`);
-            PDF417.draw(barcode, canvas)
+            PDF417.draw(barcode, canvas);
         }
 
-        copy(){
-            this.ibanTarget.select()
+        copy() {
+            this.ibanTarget.select();
             document.execCommand("copy");
         }
 
