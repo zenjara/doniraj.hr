@@ -8,7 +8,7 @@
   transition: all 0.2s ease;
 
   &:hover {
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
   .ticket__content {
@@ -89,10 +89,16 @@
         margin-right: 8px;
       }
 
+      a {
+        display: flex;
+        align-items: center;
+        color: $text-dark-1;
+        text-decoration: none;
+      }
+
       &:not(:last-child) {
         margin-bottom: 16px;
       }
-
     }
 
     hr {
@@ -110,6 +116,10 @@
     width: 100%;
     color: $text-dark-1;
 
+    .ticket__payment-info:first-child {
+      flex-grow: 2
+    }
+
     .payment-label {
       margin-bottom: 16px;
       font-size: 18px;
@@ -125,8 +135,17 @@
         margin-right: 8px;
       }
 
+      input {
+        border: none;
+        margin-right: 8px;
+        min-width: 195px;
+      }
     }
 
+    .payment-barcode {
+      width: 248px;
+      height: 144px;
+    }
   }
 
 }

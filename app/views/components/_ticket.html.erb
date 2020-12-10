@@ -1,4 +1,6 @@
 <div class="ticket" data-controller="ticket" data-action="click->ticket#toggleCard">
+  <input type="hidden" data-ticket-target="organizationId" value="<%= organization.id %>"/>
+  <input type="hidden" data-ticket-target="barcode" value="<%= organization.generate_barcode %>"/>
   <div class="ticket__content">
     <div class="ticket__header">
       <h4 class="ticket__name">
@@ -7,10 +9,10 @@
       <%= inline_svg_tag 'chevron-down', class: "ticket__toggle-action" %>
     </div>
     <div class="ticket__info">
-      <span class="ticket__address"><%= organization.address %>, <strong>Split</strong></span>
-      <a href="#" target="_blank">
-        <%= inline_svg_tag 'globe' %>
-        <span><%= organization.website %></span>
+      <span class="ticket__address"><%= organization.address %>
+        , <strong><%= organization.city.name %></strong></span>
+      <a href="<%= organization.website %>" target="_blank">
+        <%= inline_svg_tag 'globe' %><%= organization.website %>
       </a>
     </div>
     <div class="ticket__body ticket__body--hidden" data-ticket-target="body">
@@ -21,23 +23,22 @@
           <span><%= organization.telephone %></span>
         </div>
         <div class="ticket__contact">
-          <%= inline_svg_tag 'email' %>
-          <span><%= organization.email %></span>
+          <a href="mailto:<%= organization.email %>"><%= inline_svg_tag 'email' %><%= organization.email %></a>
         </div>
       </div>
       <hr/>
       <div class="ticket__footer">
         <div class="ticket__payment-info">
           <div class="payment-label">Iban</div>
-          <div class="payment-content">
-            <span><%= organization.iban %></span>
+          <div class="payment-content" data-action="click->ticket#copy">
+            <input data-ticket-target="iban" value="<%= organization.iban %>" readonly/>
             <%= inline_svg_tag 'copy' %>
           </div>
         </div>
         <div class="ticket__payment-info">
           <div class="payment-label">Skeniraj i uplati</div>
           <div class="payment-content">
-            <canvas id="barcode"></canvas>
+            <canvas class="payment-barcode" id="barcode_organization_<%= organization.id %>"></canvas>
           </div>
         </div>
       </div>
