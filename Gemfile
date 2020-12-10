@@ -51,6 +51,9 @@ gem "administrate"
 # Normalize.css is an alternative to CSS resets. Read more: https://github.com/markmcconachie/normalize-rails
 gem 'normalize-rails'
 
+# Embed SVG documents in your Rails views and style them with CSS. Read more: https://github.com/jamesmartin/inline_svg
+gem 'inline_svg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

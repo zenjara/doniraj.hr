@@ -16,10 +16,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require select2
+//= require stimulus/init
 //= require_tree .
 
 (function($){
     $(document).on('ready', function(){
         $('#organization_city_id').select2();
+        $('#citySelect').select2({
+            placeholder: "Mjesto",
+            allowClear: true
+        });
     });
 }(jQuery));
