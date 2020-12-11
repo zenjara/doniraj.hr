@@ -56,6 +56,10 @@
         height: 100%;
       }
 
+      .select2.select2-container.select2-container--default {
+        width: 225px !important;
+      }
+
       .select2-selection.select2-selection--single {
         border: 2px solid rgba(#111, 0.15);
         border-radius: 4px;
