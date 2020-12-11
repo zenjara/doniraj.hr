@@ -22,7 +22,7 @@
             this.timeout = setTimeout(() => {
                 Rails.fire(this.formTarget, 'submit')
                 Pagy.init(document.getElementById('organizationsList'))
-            }, 200)
+            }, 400)
         }
 
         handleResults() {

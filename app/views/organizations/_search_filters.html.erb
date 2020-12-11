@@ -2,18 +2,25 @@
   <%= form_with url: search_path,
                 method: :get,
                 id: 'searchForm',
-                data: { action: "ajax:success->search#handleResults", 'search-target': "form" } do |f|
+                data: {action: "ajax:success->search#handleResults", 'search-target': "form"} do |f|
   %>
-    <div>
-      <%= f.text_field :organization_name, autocomplete: "off", placeholder: "Pretraži udruge", 'data-search-target': 'input', 'data-action': 'keydown->search#search' %>
+    <div class="text-input-wrapper">
+      <label for="text-search">
+        <%= inline_svg_tag 'search.svg' %>
+      </label>
+      <%= f.text_field :organization_name, autocomplete: "off", placeholder: "Pretraži udruge", 'data-search-target': 'input', 'data-action': 'keydown->search#search', id: 'text-search' %>
+    </div>
+    <div class="select-input-wrapper">
       <%= f.select :city_id,
                    options_for_select(City.pluck(:name, :id)),
-                   { include_blank: true },
-                   { 'data-search-target': 'select',
-                     'data-action': 'change->search#search',
-                     id: 'citySelect',
-                     class: ''
-                   } %>
+                   {include_blank: true, prompt: 'Grad'},
+                   {
+                       'data-search-target': 'select',
+                       'data-action': 'change->search#search',
+                       id: 'citySelect',
+                       class: ''
+                   }
+      %>
     </div>
   <% end %>
 </div>
