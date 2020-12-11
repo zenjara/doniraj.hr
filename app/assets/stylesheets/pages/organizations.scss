@@ -45,20 +45,20 @@
     margin-bottom: 40px;
     background-color: $test-background-green;
 
-    svg {
-      //height: 65px;
-      //width: 65px;
+    svg.card__image--minor {
+      height: 100px;
+      width: 100px;
     }
 
-    svg.card__image--major {
-      height: 140px;
-      width: 140px;
-    }
+    //svg.card__image--major {
+    //  height: 140px;
+    //  width: 140px;
+    //}
 
-    svg.card__image--last {
-      height: 112px;
-      width: 112px;
-    }
+    //svg.card__image--last {
+    //  height: 112px;
+    //  width: 112px;
+    //}
 
   }
 
