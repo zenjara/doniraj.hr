@@ -1,0 +1,119 @@
+.organizations-search {
+
+  form {
+    display: flex;
+    align-items: center;
+
+    .text-input-wrapper {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      height: 50px;
+      border: 2px solid rgba(#111, 0.15);
+      border-radius: 4px;
+      padding: 0 8px;
+      margin-right: 16px;
+      color: rgba(#111, 0.25);
+      transition: all .2s ease;
+      outline: none;
+
+      &:hover, &:focus {
+        border-color: $test-background-green;
+        color: $test-background-green;
+        box-shadow: 0 2px 8px 0 rgba($test-background-green, 0.2);
+
+        input::placeholder {
+          color: $test-background-green;
+        }
+
+      }
+
+      label {
+        display: inline-flex;
+        margin-right: 8px;
+      }
+
+      input {
+        flex-grow: 1;
+        border: none;
+        padding: 14px 0;
+        outline: none;
+        caret-color: $test-background-green;
+
+        &::placeholder {
+          font-size: 15px;
+          font-weight: 400;
+        }
+
+      }
+
+    }
+
+    .select-input-wrapper {
+      align-self: stretch;
+
+      .select2.select2-container.select2-container--default, .select2-selection.select2-selection--single {
+        height: 100%;
+      }
+
+      .select2.select2-container.select2-container--default {
+        width: 225px !important;
+      }
+
+      .select2-selection.select2-selection--single {
+        border: 2px solid rgba(#111, 0.15);
+        border-radius: 4px;
+        transition: all .2s ease;
+        outline: none;
+
+        &:hover, &:focus {
+          border-color: $test-background-green;
+          color: $test-background-green;
+          box-shadow: 0 2px 8px 0 rgba($test-background-green, 0.2);
+
+          .select2-selection__placeholder {
+            color: $test-background-green;
+          }
+
+        }
+
+        .select2-selection__clear {
+          right: 12px;
+        }
+
+      }
+
+      .select2-selection__rendered {
+        padding: 10px 16px;
+      }
+
+      .select2-selection__arrow {
+        top: 12px;
+        right: 8px;
+      }
+
+    }
+
+  }
+
+}
+
+
+.select2-container.select2-container--default.select2-container--open {
+
+  input.select2-search__field {
+    border: 2px solid rgba(#111, 0.15);
+    border-radius: 2px;
+    caret-color: $test-background-green;
+    outline: none;
+  }
+
+  .select2-dropdown {
+    border: 2px solid rgba(#111, 0.15);
+  }
+
+  .select2-results__option.select2-results__option--highlighted {
+    background-color: $test-background-green;
+  }
+
+}
