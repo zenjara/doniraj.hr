@@ -4,7 +4,6 @@
   margin: 32px 0;
   background-color: #FFF;
   box-shadow: 0 6px 24px rgba(38, 50, 56, 0.1);
-  cursor: pointer;
   transition: all 0.2s ease;
 
   &:last-child {
@@ -26,17 +25,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
 
       @media only screen and (max-width: 425px) {
-        align-items: baseline;
+        align-items: flex-start;
       }
 
-      svg {
+      .ticket__toggle-action {
         flex-shrink: 0;
+        transition: transform .25s ease;
 
         @media only screen and (max-width: 425px) {
           height: 24px;
           width: 24px;
+        }
+
+        &.action-reverse {
+          transform: rotate(.5turn);
         }
 
       }
@@ -49,10 +54,9 @@
       align-items: flex-start;
 
       a {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        width: 100%;
-        margin-top: 16px;
+        max-width: 100%;
         color: $text-dark-1;
         font-size: 18px;
         font-weight: 400;
@@ -71,8 +75,11 @@
 
     }
 
-    h4 {
+    .ticket__header {
       margin-bottom: 12px;
+    }
+
+    h4 {
       font-size: 26px;
       font-weight: 500;
 
@@ -85,11 +92,12 @@
     .ticket__address {
       display: flex;
       align-items: center;
-      width: 100%;
+      margin-bottom: 16px;
       font-size: 16px;
       font-weight: 300;
 
       @media only screen and (max-width: 425px) {
+        width: 100%;
         font-size: 15px;
       }
 
@@ -97,10 +105,6 @@
         margin-right: 4px;
       }
 
-    }
-
-    .ticket__toggle-action {
-      cursor: pointer;
     }
 
   }
@@ -118,12 +122,12 @@
       margin: 24px 0 16px 0;
       font-size: 16px;
       font-weight: 300;
+      text-align: justify;
     }
 
     .ticket__contact {
       display: flex;
       align-items: center;
-      width: 100%;
       font-size: 16px;
       font-weight: 300;
 
@@ -134,7 +138,6 @@
       a {
         display: flex;
         align-items: flex-start;
-        width: 100%;
         color: $text-dark-1;
         text-decoration: none;
       }
@@ -157,7 +160,6 @@
     align-items: baseline;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
     color: $text-dark-1;
 
     @media only screen and (max-width: 425px) {

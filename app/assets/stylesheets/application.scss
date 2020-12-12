@@ -70,12 +70,25 @@ p {
 .hover-text-color {
   transition: color .15s ease;
 
+  h4 {
+    transition: color .15s ease;
+  }
+
   &:hover {
     color: $primary-color !important;
+
+    h4 {
+      color: $primary-color !important;
+    }
+
   }
 
 }
 
 .break-text {
   word-break: break-all;
+}
+
+.full-width {
+  width: 100%;
 }
