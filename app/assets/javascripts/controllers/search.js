@@ -2,31 +2,31 @@
     const application = Stimulus.Application.start();
 
     application.register("search", class extends Stimulus.Controller {
-        static targets = ["results", "form", "input", "select", "pagination"]
+        static targets = ["results", "form", "input", "select", "pagination"];
 
         connect() {
-            let $citySelect = $("#citySelect")
+            let $citySelect = $("#citySelect");
             $citySelect.on('select2:select', function () {
-                let event = new Event('change')
+                let event = new Event('change');
                 this.dispatchEvent(event);
             });
 
             $citySelect.on("select2:unselecting", function (e) {
-                let event = new Event('change')
+                let event = new Event('change');
                 this.dispatchEvent(event);
             });
         }
 
         search() {
-            clearTimeout(this.timeout)
+            clearTimeout(this.timeout);
             this.timeout = setTimeout(() => {
-                Rails.fire(this.formTarget, 'submit')
+                Rails.fire(this.formTarget, 'submit');
                 Pagy.init(document.getElementById('organizationsList'))
-            }, 200)
+            }, 400);
         }
 
         handleResults() {
-            const [data, status, xhr] = event.detail
+            const [data, status, xhr] = event.detail;
             if (data.html) {
                 this.refreshList(data)
             }

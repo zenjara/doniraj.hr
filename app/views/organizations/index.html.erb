@@ -7,7 +7,7 @@
     <div class="cards-wrapper">
       <div class="card card--left">
         <div class="card__image-wrapper">
-          <%= inline_svg_tag 'step-one-icon.svg', class: 'card__image' %>
+          <%= inline_svg_tag 'step-one-icon.svg', class: 'card__image  card__image--minor' %>
         </div>
         <span>Pronađi udrugu</span>
       </div>
@@ -19,18 +19,18 @@
       </div>
       <div class="card card--right">
         <div class="card__image-wrapper">
-          <%= inline_svg_tag 'step-three-icon.svg', class: 'card__image card__image--last' %>
+          <%= inline_svg_tag 'step-three-icon.svg', class: 'card__image card__image--minor' %>
         </div>
         <span>Razveseli</span>
       </div>
     </div>
   </div>
 </div>
-<section>
-  <%= render partial: 'search_filters' %>
-</section>
-<section class="organizations-list">
-  <%= render partial: 'organizations_list', locals: { organizations: @organizations } %>
+<section class="organizations">
+  <div class="organizations__content">
+    <%= render partial: 'search_filters' %>
+    <%= render partial: 'organizations_list', locals: { organizations: @organizations } %>
+  </div>
 </section>
 <section class="recommend">
   <div class="recommend-content">
