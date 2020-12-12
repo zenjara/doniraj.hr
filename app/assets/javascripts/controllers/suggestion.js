@@ -31,8 +31,6 @@
             if (!this.validateForm()) {
                 event.preventDefault();
                 this.showError();
-            } else {
-                Rails.fire(this.formTarget, 'submit')
             }
         }
 

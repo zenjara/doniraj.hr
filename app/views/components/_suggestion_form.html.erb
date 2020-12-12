@@ -12,7 +12,6 @@
                     data: { remote: true, 'suggestion-target': 'form', action: 'ajax:success->suggestion#submitSuccess
                                                               ajax:error->suggestion#showError' } do |f| %>
 
-        <!--        <input type="hidden" value="<%#= organization.id %>"/>-->
         <%= hidden_field_tag :created_via_suggestion_form, true %>
         <div class='formSection' data-suggestion-target="formSection">
           <label for="name">Naziv udruge <span class="required">*</span></label>
