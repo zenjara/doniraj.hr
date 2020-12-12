@@ -18,12 +18,12 @@
       outline: none;
 
       &:hover, &:focus {
-        border-color: $test-background-green;
-        color: $test-background-green;
-        box-shadow: 0 2px 8px 0 rgba($test-background-green, 0.2);
+        border-color: $primary-color;
+        color: $primary-color;
+        box-shadow: 0 2px 8px 0 rgba($primary-color, 0.2);
 
         input::placeholder {
-          color: $test-background-green;
+          color: $primary-color;
         }
 
       }
@@ -38,7 +38,7 @@
         border: none;
         padding: 14px 0;
         outline: none;
-        caret-color: $test-background-green;
+        caret-color: $primary-color;
 
         &::placeholder {
           font-size: 15px;
@@ -67,12 +67,12 @@
         outline: none;
 
         &:hover, &:focus {
-          border-color: $test-background-green;
-          color: $test-background-green;
-          box-shadow: 0 2px 8px 0 rgba($test-background-green, 0.2);
+          border-color: $primary-color;
+          color: $primary-color;
+          box-shadow: 0 2px 8px 0 rgba($primary-color, 0.2);
 
           .select2-selection__placeholder {
-            color: $test-background-green;
+            color: $primary-color;
           }
 
         }
@@ -104,7 +104,7 @@
   input.select2-search__field {
     border: 2px solid rgba(#111, 0.15);
     border-radius: 2px;
-    caret-color: $test-background-green;
+    caret-color: $primary-color;
     outline: none;
   }
 
@@ -113,7 +113,7 @@
   }
 
   .select2-results__option.select2-results__option--highlighted {
-    background-color: $test-background-green;
+    background-color: $primary-color;
   }
 
 }

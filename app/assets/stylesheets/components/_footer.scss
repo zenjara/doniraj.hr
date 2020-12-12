@@ -13,12 +13,6 @@
       color: $text-dark-1;
       font-size: 22px;
       font-weight: 400;
-      transition: color .15s ease;
-
-      &:hover {
-        color: $test-background-green;
-      }
-
     }
 
     .footer__navigation {
@@ -32,7 +26,6 @@
       color: $text-dark-1;
       font-size: 16px;
       text-decoration: none;
-      transition: color .15s ease;
 
       svg {
         margin-right: 8px;
@@ -40,10 +33,6 @@
 
       &.polica {
         font-weight: 300;
-      }
-
-      &:hover {
-        color: $test-background-green;
       }
 
     }

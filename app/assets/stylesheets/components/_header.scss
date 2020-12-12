@@ -1,7 +1,7 @@
 .header {
   padding: 36px 0;
   //background-color: #F0F0F0;
-  background-color: $test-background-green;
+  background-color: $primary-color;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -89,7 +89,7 @@ a.nav-action {
 }
 
 .mobile-menu {
-  background-color: $test-background-green;
+  background-color: $primary-color;
   position: fixed;
   top: 0;
   bottom: 0;

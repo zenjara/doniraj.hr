@@ -33,7 +33,7 @@ h5,
 h6 {
   margin: 0;
   color: $text-dark-1;
-  line-height: 1.5;
+  line-height: 1.26em;
 }
 
 p {
@@ -42,4 +42,40 @@ p {
 
 .center {
   text-align: center;
+}
+
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.line-height-common {
+  line-height: 1.4em;
+}
+
+.icon-sm {
+  height: 18px;
+  width: 18px;
+}
+
+.hover-text-color {
+  transition: color .15s ease;
+
+  &:hover {
+    color: $primary-color !important;
+  }
+
+}
+
+.break-text {
+  word-break: break-all;
 }
