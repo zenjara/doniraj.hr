@@ -3,10 +3,11 @@
 
 @import "shared/fonts";
 @import "shared/colors";
-@import "components/footer";
-@import "components/pagination";
 @import "components/header";
+@import "components/suggestion_form";
 @import "components/ticket";
+@import "components/pagination";
+@import "components/footer";
 @import "pages/organizations";
 
 html {
@@ -41,4 +42,19 @@ p {
 
 .center {
   text-align: center;
+}
+
+.required{
+  color: #FF0505
+}
+
+#suggestionModal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
 }

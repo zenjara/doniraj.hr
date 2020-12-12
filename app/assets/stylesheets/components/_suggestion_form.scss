@@ -1,0 +1,87 @@
+.suggestionFormContainer {
+  padding: 24px;
+  margin: 0 auto;
+  max-width: 528px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  border: 1px solid;
+  border-radius: 20px;
+
+  .suggestionFormContainer__content {
+    .formClose {
+      margin-bottom: 16px;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .suggestionFormContainer__header {
+      margin-bottom: 40px;
+
+      h4 {
+        margin-bottom: 16px;
+        font-size: 30px;
+        font-weight: 500;
+        text-align: left;
+      }
+
+      h5 {
+        font-size: 18px;
+        font-weight: 300;
+        text-align: left;
+      }
+    }
+
+    .suggestionForm {
+      .formSection {
+        width: 100%;
+        margin-bottom: 24px;
+
+        label {
+          display: block;
+          margin-bottom: 8px;
+          font-size: 16px;
+          font-weight: 400;
+          text-align: left;
+        }
+
+        input, textarea {
+          width: 100%;
+          height: 40px;
+          background: #FFFFFF;
+          border: 0.3px solid #000000;
+          box-sizing: border-box;
+          border-radius: 4px;
+        }
+
+        textarea{
+          height: 120px;
+        }
+
+        .select2-container{
+          width: 50%;
+        }
+      }
+
+      .formFooter {
+        .submitButton {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 0;
+          margin-left: auto;
+          width: 120px;
+          height: 46px;
+          border: none;
+          border-radius: 4px;
+          color: #FFF;
+          background: #5E5A5A;
+          font-weight: 500;
+          text-transform: uppercase;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}
