@@ -48,7 +48,6 @@
             e.preventDefault();
             let currentPage = parseInt($('span.current').text());
             let previousPage = currentPage - 1;
-
             this.initiatePaginationRequest(e, previousPage)
         }
 
@@ -57,7 +56,7 @@
                 cache: false,
                 type: 'get',
                 data: {
-                    organization_name: $('#organization_name').val(),
+                    organization_name: $('#text-search').val(),
                     city_id: $('#citySelect').val(),
                     page: page
                 },
