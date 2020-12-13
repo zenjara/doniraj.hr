@@ -13,7 +13,7 @@
         ];
 
         connect() {
-            const thisController = this
+            const thisController = this;
             $('.suggestionButton').click(function (e) {
                 const suggestionModal = $('#suggestionModal')
                 suggestionModal.show().addClass('modalBlur');
