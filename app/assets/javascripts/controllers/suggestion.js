@@ -71,7 +71,7 @@
 
             if (this.cityIdTarget.value.trim() === "") {
                 this.cityIdTarget.focus();
-                this.cityErrorTarget.textContent = "Molimo izaberite grad.";
+                this.cityErrorTarget.textContent = "Molimo odaberite mjesto.";
                 this.targets.findAll("formSection")[1].classList.add("error");
                 return false;
             }
