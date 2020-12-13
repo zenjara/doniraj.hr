@@ -22,6 +22,7 @@
         copy() {
             this.ibanTarget.select();
             document.execCommand("copy");
+            alert('IBAN kopiran u međuspremnik.');
         }
     })
 })();

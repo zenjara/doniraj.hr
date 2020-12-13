@@ -26,6 +26,7 @@ class OrganizationsController < ApplicationController
                      end
 
     @organizations = @organizations.where(city_id: params[:city_id]) if params[:city_id].present?
+    @organizations = @organizations.where(city_id: params[:city_id_mobile]) if params[:city_id_mobile].present?
     @pagy, @organizations = pagy(@organizations)
 
     render json: { html: render_to_string(action: '_organizations_list',
@@ -36,6 +37,6 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organization).permit(:name, :address, :description, :iban, :city_id)
+    params.require(:organization).permit(:name, :address, :description, :iban, :city_id, :city_id_mobile)
   end
 end
