@@ -18,26 +18,69 @@
         <%= inline_svg_tag 'close.svg', class: 'menu__close-icon header__menu--closed', data: {action: 'click->menu#toggleMenu'} %>
       </div>
     </div>
-    <div class="mobile-menu__actions">
-      <div>
-        <button class="nav-action">Predloži udrugu</button>
+    <div id="mobile-menu__actions-wrapper">
+      <div class="mobile-menu__actions">
+        <div>
+          <button class="nav-action" data-action="click->menu#toggleMobileForm">Predloži udrugu</button>
+        </div>
+        <div>
+          <a class="nav-action" href="#">O nama</a>
+        </div>
       </div>
-      <div>
-        <a class="nav-action" href="#">O nama</a>
+      <hr/>
+      <div class="mobile-menu__footer-content">
+        <a href="mailto:kontakt@doniraj.hr" class="footer__navigation-item hover-text-color">
+          <%= inline_svg_tag 'email' %>
+          <span>kontakt@doniraj.hr</span>
+        </a>
+        <span class="dot-separator"></span>
+        <a href="#" class="footer__navigation-item hover-text-color polica">Polica privatnosti</a>
+        <span class="dot-separator"></span>
+        <a href="#" class="footer__navigation-item hover-text-color">
+          <%= inline_svg_tag 'facebook-icon.svg' %>
+        </a>
       </div>
     </div>
-    <hr/>
-    <div class="mobile-menu__footer-content">
-      <a href="mailto:kontakt@doniraj.hr" class="footer__navigation-item hover-text-color">
-        <%= inline_svg_tag 'email' %>
-        <span>kontakt@doniraj.hr</span>
-      </a>
-      <span class="dot-separator"></span>
-      <a href="#" class="footer__navigation-item hover-text-color polica">Polica privatnosti</a>
-      <span class="dot-separator"></span>
-      <a href="#" class="footer__navigation-item hover-text-color">
-        <%= inline_svg_tag 'facebook-icon.svg' %>
-      </a>
+    <div class="mobile-form none" id="mobile-form">
+      <p class="back-action">
+        <span data-action="click->menu#toggleMobileForm">&#8592; Natrag na izbornik</span>
+      </p>
+      <h4>Predloži udrugu</h4>
+      <p class="mobile-form__info line-height-common">Što više informacija nam date, to bolje hehe</p>
+      <%= form_with model: @organization, scope: :organization, class: "suggestion_form",
+                    data: { remote: true, 'suggestion-target': 'form', action: 'ajax:success->suggestion#submitSuccess
+                                                              ajax:error->suggestion#showError' } do |f| %>
+        <%= hidden_field_tag :created_via_suggestion_form, true %>
+        <div class='form-section' data-suggestion-target="formSection">
+          <label for="name">Naziv udruge <span class="required">*</span></label>
+          <%= f.text_field :name, autofocus: true, 'data-suggestion-target': 'name', class: 'hover-input' %>
+          <label for="name" class="errorMessage">
+            <span data-suggestion-target="nameError" data-validation-text="Required"></span>
+          </label>
+        </div>
+        <div class='form-section' data-suggestion-target="formSection">
+          <label for="city_id">Mjesto <span class="required">*</span></label>
+          <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)), { include_blank: true }, 'data-suggestion-target': 'cityId') %>
+          <label for="organization" class="errorMessage">
+            <span data-suggestion-target="cityError" data-validation-text="Required"></span>
+          </label>
+        </div>
+        <div class='form-section' data-suggestion-target="formSection">
+          <label for="description">Opis udruge</label>
+          <%= f.text_area :description, class: 'hover-input', resize: 'none' %>
+        </div>
+        <div class='form-section' data-suggestion-target="formSection">
+          <label for="address">Adresa</label>
+          <%= f.text_field :address, class: 'hover-input' %>
+        </div>
+        <div class='form-section' data-suggestion-target="formSection">
+          <label for="iban">IBAN</label>
+          <%= f.text_field :iban, class: 'hover-input' %>
+        </div>
+        <div class="form-footer">
+          <%= f.button 'Predloži', class: 'submit-button', 'data-action': 'suggestion#submit' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

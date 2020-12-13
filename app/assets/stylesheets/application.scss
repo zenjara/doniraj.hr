@@ -155,10 +155,18 @@ p {
   visibility: hidden;
 }
 
+.none {
+  display: none;
+}
+
 .input-border-primary {
   border: 2px solid rgba(#111, 0.15);
 }
 
 .radius-m {
   border-radius: 4px;
+}
+
+.lock {
+  overflow: hidden;
 }
