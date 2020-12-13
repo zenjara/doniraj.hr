@@ -80,7 +80,7 @@
             Pagy.init(document.getElementById('organizationsList'));
         }
 
-        toggleMobileSelect(event) {
+        selectCityFilterMobile(event) {
             const optionElement = document.querySelector(`[value="${event.target.value}"]`);
             const optionValue = optionElement.textContent;
 
