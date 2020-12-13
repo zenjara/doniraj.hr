@@ -1,6 +1,6 @@
 <div class="hero">
   <div class="hero__content">
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    <p class="line-height-common">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
       pariatur. Excepteur
       sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
       laborum.</p>
@@ -18,6 +18,26 @@
         <span>Doniraj</span>
       </div>
       <div class="card card--right">
+        <div class="card__image-wrapper">
+          <%= inline_svg_tag 'step-three-icon.svg', class: 'card__image card__image--minor' %>
+        </div>
+        <span>Razveseli</span>
+      </div>
+    </div>
+    <div class="cards-wrapper--mobile">
+      <div class="card--mobile">
+        <div class="card__image-wrapper">
+          <%= inline_svg_tag 'step-one-icon.svg', class: 'card__image  card__image--minor' %>
+        </div>
+        <span>Pronađi udrugu</span>
+      </div>
+      <div class="card--mobile card--major">
+        <div class="card__image-wrapper">
+          <%= inline_svg_tag 'step-two-icon.svg', class: 'card__image card__image--major' %>
+        </div>
+        <span>Doniraj</span>
+      </div>
+      <div class="card--mobile">
         <div class="card__image-wrapper">
           <%= inline_svg_tag 'step-three-icon.svg', class: 'card__image card__image--minor' %>
         </div>

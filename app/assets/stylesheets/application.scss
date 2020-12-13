@@ -34,7 +34,7 @@ h5,
 h6 {
   margin: 0;
   color: $text-dark-1;
-  line-height: 1.5;
+  line-height: 1.26em;
 }
 
 p {
@@ -62,8 +62,8 @@ p {
 .loader {
   display: none;
   margin: 10% auto;
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid $test-background-green; /* Blue */
+  border: 16px solid #F3F3F3; /* Light grey */
+  border-top: 16px solid $primary-color; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -73,4 +73,65 @@ p {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.line-height-common {
+  line-height: 1.4em;
+}
+
+.icon-sm {
+  height: 18px;
+  width: 18px;
+}
+
+.hover-text-color {
+  transition: color .15s ease;
+
+  h4 {
+    transition: color .15s ease;
+  }
+
+  &:hover {
+    color: $primary-color !important;
+
+    h4 {
+      color: $primary-color !important;
+    }
+
+  }
+
+}
+
+.break-text {
+  word-break: break-all;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.input-border-primary {
+  border: 2px solid rgba(#111, 0.15);
+}
+
+.radius-m {
+  border-radius: 4px;
 }

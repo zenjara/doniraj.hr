@@ -12,6 +12,9 @@
             const barcode = this.barcodeTarget.value;
             body.classList.toggle('ticket__body--hidden');
 
+            const actionIcon = document.getElementById(`ticket__toggle-action--${organizationId}`);
+            actionIcon.classList.toggle('action-reverse');
+
             var canvas = document.getElementById(`barcode_organization_${organizationId}`);
             PDF417.draw(barcode, canvas);
         }

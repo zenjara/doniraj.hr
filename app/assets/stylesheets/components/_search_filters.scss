@@ -3,6 +3,7 @@
   form {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     .text-input-wrapper {
       display: flex;
@@ -17,13 +18,21 @@
       transition: all .2s ease;
       outline: none;
 
+      @media only screen and (max-width: 425px) {
+        margin: 24px 0;
+      }
+
+      ::placeholder {
+        color: #999;
+      }
+
       &:hover, &:focus {
-        border-color: $test-background-green;
-        color: $test-background-green;
-        box-shadow: 0 2px 8px 0 rgba($test-background-green, 0.2);
+        border-color: $primary-color;
+        color: $primary-color;
+        box-shadow: 0 2px 8px 0 rgba($primary-color, 0.2);
 
         input::placeholder {
-          color: $test-background-green;
+          color: $primary-color;
         }
 
       }
@@ -38,7 +47,7 @@
         border: none;
         padding: 14px 0;
         outline: none;
-        caret-color: $test-background-green;
+        caret-color: $primary-color;
 
         &::placeholder {
           font-size: 15px;
@@ -51,6 +60,43 @@
 
     .select-input-wrapper {
       align-self: stretch;
+
+      &.mobile--hide {
+
+        @media only screen and (max-width: 425px) {
+          display: none;
+        }
+
+      }
+
+      &.mobile--show {
+        display: none;
+        flex-basis: 100%;
+        position: relative;
+
+        @media only screen and (max-width: 425px) {
+          display: initial;
+        }
+
+        select {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          opacity: 0;
+        }
+
+      }
+
+      .select-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+        padding: 10px 16px;
+        color: #999;
+        cursor: pointer;
+      }
 
       .select2.select2-container.select2-container--default, .select2-selection.select2-selection--single {
         height: 100%;
@@ -67,12 +113,12 @@
         outline: none;
 
         &:hover, &:focus {
-          border-color: $test-background-green;
-          color: $test-background-green;
-          box-shadow: 0 2px 8px 0 rgba($test-background-green, 0.2);
+          border-color: $primary-color;
+          color: $primary-color;
+          box-shadow: 0 2px 8px 0 rgba($primary-color, 0.2);
 
           .select2-selection__placeholder {
-            color: $test-background-green;
+            color: $primary-color;
           }
 
         }
@@ -104,7 +150,7 @@
   input.select2-search__field {
     border: 2px solid rgba(#111, 0.15);
     border-radius: 2px;
-    caret-color: $test-background-green;
+    caret-color: $primary-color;
     outline: none;
   }
 
@@ -113,7 +159,7 @@
   }
 
   .select2-results__option.select2-results__option--highlighted {
-    background-color: $test-background-green;
+    background-color: $primary-color;
   }
 
 }

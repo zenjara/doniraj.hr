@@ -3,8 +3,7 @@
   padding: 24px 32px 24px 56px;
   margin: 32px 0;
   background-color: #FFF;
-  box-shadow: 0px 6px 24px rgba(38, 50, 56, 0.1);
-  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(38, 50, 56, 0.1);
   transition: all 0.2s ease;
 
   &:last-child {
@@ -15,12 +14,37 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
+  @media only screen and (max-width: 425px) {
+    margin: 24px 0;
+    padding: 24px;
+  }
+
   .ticket__content {
 
     .ticket__header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
+
+      @media only screen and (max-width: 425px) {
+        align-items: flex-start;
+      }
+
+      .ticket__toggle-action {
+        flex-shrink: 0;
+        transition: transform .25s ease;
+
+        @media only screen and (max-width: 425px) {
+          height: 24px;
+          width: 24px;
+        }
+
+        &.action-reverse {
+          transform: rotate(.5turn);
+        }
+
+      }
 
     }
 
@@ -30,40 +54,57 @@
       align-items: flex-start;
 
       a {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        margin-top: 16px;
+        max-width: 100%;
         color: $text-dark-1;
         font-size: 18px;
         font-weight: 400;
         text-decoration: none;
-        transition: color .15s ease;
 
-        svg {
-          margin-right: 4px;
+        @media only screen and (max-width: 425px) {
+          font-size: 16px;
         }
 
-        &:hover {
-          color: $test-background-green;
+        svg {
+          flex-shrink: 0;
+          margin-right: 4px;
         }
 
       }
 
     }
 
-    h4 {
+    .ticket__header {
       margin-bottom: 12px;
+    }
+
+    h4 {
       font-size: 26px;
       font-weight: 500;
+
+      @media only screen and (max-width: 425px) {
+        font-size: 22px;
+      }
+
     }
 
     .ticket__address {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
       font-size: 16px;
       font-weight: 300;
-    }
 
-    .ticket__toggle-action {
-      cursor: pointer;
+      @media only screen and (max-width: 425px) {
+        width: 100%;
+        font-size: 15px;
+      }
+
+      svg {
+        margin-right: 4px;
+      }
+
     }
 
   }
@@ -81,6 +122,7 @@
       margin: 24px 0 16px 0;
       font-size: 16px;
       font-weight: 300;
+      text-align: justify;
     }
 
     .ticket__contact {
@@ -95,7 +137,7 @@
 
       a {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         color: $text-dark-1;
         text-decoration: none;
       }
@@ -117,14 +159,32 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    width: 100%;
+    flex-wrap: wrap;
     color: $text-dark-1;
+
+    @media only screen and (max-width: 425px) {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+
+    .ticket__payment-info {
+
+      @media only screen and (max-width: 425px) {
+        margin: 32px 0;
+      }
+
+    }
 
     .payment-label {
       margin-bottom: 16px;
       font-size: 18px;
       font-weight: 500;
       text-transform: uppercase;
+
+      @media only screen and (max-width: 425px) {
+        margin-bottom: 8px;
+      }
+
     }
 
     .payment-content {
