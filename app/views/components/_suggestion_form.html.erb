@@ -1,0 +1,54 @@
+<div class="suggestionFormContainer" data-controller="suggestion" data-suggestion-target="formContainer">
+  <div class="closeContainer">
+    <div class="formClose" data-action="click->suggestion#closeForm">
+      <%= inline_svg_tag 'close.svg', class: "ticket__toggle-action" %>
+    </div>
+  </div>
+  <div class="successMessage">
+    <h1>Hvala na unosu!</h1>
+    <p>Predloženu udrugu ćemo pregledati te naknadno ju dodati u naš sustav.</p>
+  </div>
+  <div class="suggestionFormContainer__content">
+    <div class="suggestionFormContainer__header">
+      <h4 class="suggestionFormContainer__title">Predloži udrugu</h4>
+      <h5 class="suggestionFormContainer__hint"> Dajte nam info pls - PROMIJENI ME</h5>
+    </div>
+    <div class="suggestionForm">
+      <%= form_with model: @organization, scope: :organization, class: "suggestion_form",
+                    data: { remote: true, 'suggestion-target': 'form', action: 'ajax:success->suggestion#submitSuccess
+                                                              ajax:error->suggestion#showError' } do |f| %>
+        <%= hidden_field_tag :created_via_suggestion_form, true %>
+        <div class='formSection' data-suggestion-target="formSection">
+          <label for="name">Naziv udruge <span class="required">*</span></label>
+          <%= f.text_field :name, autofocus: true, 'data-suggestion-target': 'name', class: 'hover-input' %>
+          <label for="name" class="errorMessage">
+            <span data-suggestion-target="nameError" data-validation-text="Required"></span>
+          </label>
+        </div>
+        <div class='formSection' data-suggestion-target="formSection">
+          <label for="city_id">Mjesto <span class="required">*</span></label>
+          <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)), { include_blank: true }, 'data-suggestion-target': 'cityId') %>
+          <label for="organization" class="errorMessage">
+            <span data-suggestion-target="cityError" data-validation-text="Required"></span>
+          </label>
+        </div>
+        <div class='formSection' data-suggestion-target="formSection">
+          <label for="description">Opis udruge</label>
+          <%= f.text_area :description, class: 'hover-input', resize: 'none' %>
+        </div>
+        <div class='formSection' data-suggestion-target="formSection">
+          <label for="address">Adresa</label>
+          <%= f.text_field :address, class: 'hover-input' %>
+        </div>
+        <div class='formSection' data-suggestion-target="formSection">
+          <label for="iban">IBAN</label>
+          <%= f.text_field :iban, class: 'hover-input' %>
+        </div>
+        <div class="formFooter">
+          <%= f.button 'Predloži', class: 'submitButton', 'data-action': 'suggestion#submit' %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

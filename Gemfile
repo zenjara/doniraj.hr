@@ -54,6 +54,9 @@ gem 'normalize-rails'
 # Embed SVG documents in your Rails views and style them with CSS. Read more: https://github.com/jamesmartin/inline_svg
 gem 'inline_svg'
 
+# Pagy is the ultimate pagination gem that outperforms the others in each and every benchmark and comparison. Read more: https://github.com/ddnexus/pagy
+gem 'pagy', '~> 3.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

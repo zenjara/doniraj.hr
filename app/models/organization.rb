@@ -17,14 +17,23 @@
 #  updated_at :datetime         not null
 #
 class Organization < ApplicationRecord
+  # Associations
   belongs_to :city
 
+  # Validations
   validates :name, presence: true
 
+  # Scopes
   scope :verified, -> { where(verified: true) }
   scope :unverified, -> { where(verified: false) }
   scope :unverified_and_not_archived, -> { where(verified: false, archived: false) }
   scope :archived, -> { where(archived: true) }
+
+  # Callbacks
+  # after_create :send_suggestion_notification_email
+
+  # Virtual attributes
+  attribute :created_via_suggestion_form, :boolean, default: false
 
   def generate_barcode
     "HRVHUB30\nHRK\n" +
@@ -40,5 +49,13 @@ class Organization < ApplicationRecord
         "\n" +
         "CHAR\n" +
         "Donacija preko doniraj.hr web stranice\n";
+  end
+
+  private
+
+  def send_suggestion_notification_email
+    return unless created_via_suggestion_form
+
+    OrganizationMailer.suggestion_email.deliver_later
   end
 end

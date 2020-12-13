@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def index
-    @organizations = Organization.verified
+    @pagy, @organizations = pagy(Organization.verified)
   end
 
   def new
@@ -10,7 +10,10 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
 
-    return render 'thank_you', status: :ok if @organization.save
+    if @organization.save
+      OrganizationMailer.suggestion_email.deliver_later if params[:created_via_suggestion_form]
+      return render json: {}, status: :created
+    end
 
     render json: @organization.errors, status: :internal_server_error
   end
@@ -23,6 +26,7 @@ class OrganizationsController < ApplicationController
                      end
 
     @organizations = @organizations.where(city_id: params[:city_id]) if params[:city_id].present?
+    @pagy, @organizations = pagy(@organizations)
 
     render json: { html: render_to_string(action: '_organizations_list',
                                           locals: { organizations: @organizations },
@@ -32,6 +36,6 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organization).permit(:name, :address, :iban, :city_id)
+    params.require(:organization).permit(:name, :address, :description, :iban, :city_id)
   end
 end

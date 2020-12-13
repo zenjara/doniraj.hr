@@ -1,0 +1,46 @@
+.pagination {
+  display: inline-block;
+  margin-bottom: 64px;
+
+  span {
+    float: left;
+  }
+
+  span.disabled {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+  }
+
+  a {
+    float: left;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    color: $text-dark-1;
+    text-decoration: none;
+  }
+
+  span.current {
+    padding: 8px 16px;
+    background-color: $primary-color;
+    color: white;
+    border: 1px solid $primary-color;
+  }
+
+  a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  span:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+#paginationContainer {
+  margin: 42px 0;
+}

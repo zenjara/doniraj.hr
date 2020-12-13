@@ -1,6 +1,6 @@
 .footer {
-  padding: 24px 0;
-  background-color: #C4C4C4;
+  padding: 24px 32px;
+  background-color: $primary-color;
 
   .footer__content {
     display: flex;
@@ -10,13 +10,12 @@
     margin: 0 auto;
 
     .footer__logo {
-      color: $text-dark-1;
+      color: #FFF;
       font-size: 22px;
       font-weight: 400;
-      transition: color .15s ease;
 
-      &:hover {
-        color: $test-background-green;
+      @media only screen and (max-width: 425px) {
+        display: none;
       }
 
     }
@@ -24,15 +23,28 @@
     .footer__navigation {
       display: flex;
       align-items: center;
+
+      @media only screen and (max-width: 425px) {
+        flex-grow: 1;
+        justify-content: space-between;
+      }
+
     }
 
     .footer__navigation-item {
       display: flex;
       align-items: center;
-      color: $text-dark-1;
+      color: #FFF;
       font-size: 16px;
       text-decoration: none;
-      transition: color .15s ease;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media only screen and (max-width: 425px) {
+        font-size: 12px;
+      }
 
       svg {
         margin-right: 8px;
@@ -42,20 +54,22 @@
         font-weight: 300;
       }
 
-      &:hover {
-        color: $test-background-green;
-      }
-
     }
 
   }
 
   .dot-separator {
+    flex-shrink: 0;
     width: 6px;
     height: 6px;
     border-radius: 100%;
     margin: 0 16px;
-    background-color: #5E5A5A;
+    background-color: #FFF;
+
+    @media only screen and (max-width: 425px) {
+      display: none;
+    }
+
   }
 
 }
