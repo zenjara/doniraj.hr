@@ -20,6 +20,7 @@
         search() {
             clearTimeout(this.timeout);
             this.timeout = setTimeout(() => {
+                this.displayLoader();
                 Rails.fire(this.formTarget, 'submit');
                 Pagy.init(document.getElementById('organizationsList'))
             }, 400);
@@ -52,6 +53,7 @@
         }
 
         initiatePaginationRequest(e, page){
+            this.displayLoader();
             $.ajax({
                 cache: false,
                 type: 'get',
@@ -67,8 +69,14 @@
             });
         }
 
+        displayLoader(){
+            $('.loader').show();
+            $('#organizationsList').hide();
+        }
+
         refreshList(data){
-            document.getElementById('organizationsList').innerHTML = data.html;
+            $('.loader').hide();
+            $('#organizationsList').html(data.html).show();
             Pagy.init(document.getElementById('organizationsList'))
         }
     })

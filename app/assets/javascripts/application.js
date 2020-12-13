@@ -23,7 +23,6 @@
 (function($){
     $(document).on('ready', function(){
         window.addEventListener("turbolinks:load", Pagy.init);
-        $('#organization_city_id').select2();
         $('#citySelect').select2({
             placeholder: "Mjesto",
             allowClear: true
