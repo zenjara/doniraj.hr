@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get '/search', to: 'organizations#search'
 
   root 'organizations#index'
+
+
+  # This has to be on the bottom
+  match '*path' => redirect('/'), via: :get
 end
