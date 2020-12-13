@@ -53,29 +53,35 @@
         <%= hidden_field_tag :created_via_suggestion_form, true %>
         <div class='form-section' data-suggestion-target="formSection">
           <label for="name">Naziv udruge <span class="required">*</span></label>
-          <%= f.text_field :name, autofocus: true, 'data-suggestion-target': 'name', class: 'hover-input' %>
+          <%= f.text_field :name, autofocus: true, 'data-suggestion-target': 'name' %>
           <label for="name" class="errorMessage">
             <span data-suggestion-target="nameError" data-validation-text="Required"></span>
           </label>
         </div>
         <div class='form-section' data-suggestion-target="formSection">
           <label for="city_id">Mjesto <span class="required">*</span></label>
-          <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)), { include_blank: true }, 'data-suggestion-target': 'cityId') %>
+          <div class="select-input-wrapper mobile--show">
+            <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)), { include_blank: true }, 'data-suggestion-target': 'cityId', 'data-action': 'change->menu#selectFormCityMobile') %>
+            <div class="select-placeholder radius-m input-border-primary" style="border: none;">
+              <span id="mobile-form-placeholder-text">Mjesto</span>
+              <%= inline_svg_tag 'chevron-down.svg', class: 'icon-sm' %>
+            </div>
+          </div>
           <label for="organization" class="errorMessage">
             <span data-suggestion-target="cityError" data-validation-text="Required"></span>
           </label>
         </div>
         <div class='form-section' data-suggestion-target="formSection">
           <label for="description">Opis udruge</label>
-          <%= f.text_area :description, class: 'hover-input', resize: 'none' %>
+          <%= f.text_area :description, resize: 'none' %>
         </div>
         <div class='form-section' data-suggestion-target="formSection">
           <label for="address">Adresa</label>
-          <%= f.text_field :address, class: 'hover-input' %>
+          <%= f.text_field :address %>
         </div>
         <div class='form-section' data-suggestion-target="formSection">
           <label for="iban">IBAN</label>
-          <%= f.text_field :iban, class: 'hover-input' %>
+          <%= f.text_field :iban %>
         </div>
         <div class="form-footer">
           <%= f.button 'Predloži', class: 'submit-button', 'data-action': 'suggestion#submit' %>
