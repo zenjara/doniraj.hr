@@ -92,3 +92,15 @@ p {
 .full-width {
   width: 100%;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.input-border-primary {
+  border: 2px solid rgba(#111, 0.15);
+}
+
+.radius-m {
+  border-radius: 4px;
+}

@@ -52,7 +52,7 @@
             this.initiatePaginationRequest(e, previousPage)
         }
 
-        initiatePaginationRequest(e, page){
+        initiatePaginationRequest(e, page) {
             $.ajax({
                 cache: false,
                 type: 'get',
@@ -63,14 +63,25 @@
                 },
                 url: e.currentTarget.dataset.url,
                 success: (data) => {
-                    this.refreshList(data)
-                },
+                    this.refreshList(data);
+                }
             });
         }
 
-        refreshList(data){
+        refreshList(data) {
             document.getElementById('organizationsList').innerHTML = data.html;
-            Pagy.init(document.getElementById('organizationsList'))
+            Pagy.init(document.getElementById('organizationsList'));
+        }
+
+        toggleMobileSelect(event) {
+            const optionElement = document.querySelector(`[value="${event.target.value}"]`);
+            const optionValue = optionElement.textContent;
+
+            const newValueElement = `<span style="color: #111;">${optionValue}</span>`;
+
+            const placeholder = document.getElementById('mobile-placeholder-text');
+            placeholder.innerHTML = newValueElement;
+            this.search();
         }
     })
 })();

@@ -3,6 +3,7 @@
   form {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     .text-input-wrapper {
       display: flex;
@@ -16,6 +17,14 @@
       color: rgba(#111, 0.25);
       transition: all .2s ease;
       outline: none;
+
+      @media only screen and (max-width: 425px) {
+        margin: 24px 0;
+      }
+
+      ::placeholder {
+        color: #999;
+      }
 
       &:hover, &:focus {
         border-color: $primary-color;
@@ -51,6 +60,43 @@
 
     .select-input-wrapper {
       align-self: stretch;
+
+      &.mobile--hide {
+
+        @media only screen and (max-width: 425px) {
+          display: none;
+        }
+
+      }
+
+      &.mobile--show {
+        display: none;
+        flex-basis: 100%;
+        position: relative;
+
+        @media only screen and (max-width: 425px) {
+          display: initial;
+        }
+
+        select {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          opacity: 0;
+        }
+
+      }
+
+      .select-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+        padding: 10px 16px;
+        color: #999;
+        cursor: pointer;
+      }
 
       .select2.select2-container.select2-container--default, .select2-selection.select2-selection--single {
         height: 100%;
