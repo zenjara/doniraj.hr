@@ -35,6 +35,9 @@
 <section class="recommend">
   <div class="recommend-content">
     <h3>Poznaješ više udruga kojima je potrebna pomoć?</h3>
-    <button>Predloži</button>
+    <button class="suggestionButton">Predloži</button>
   </div>
 </section>
+<div id="suggestionModal" data-target="suggestion.modal">
+  <%= render partial: 'components/suggestion_form' %>
+</div>

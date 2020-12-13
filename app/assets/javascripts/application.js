@@ -17,10 +17,12 @@
 //= require jquery_ujs
 //= require select2
 //= require stimulus/init
+//= require pagy
 //= require_tree .
 
 (function($){
     $(document).on('ready', function(){
+        window.addEventListener("turbolinks:load", Pagy.init);
         $('#organization_city_id').select2();
         $('#citySelect').select2({
             placeholder: "Mjesto",
