@@ -9,6 +9,7 @@
 @import "components/ticket";
 @import "components/pagination";
 @import "components/footer";
+@import "components/select-input";
 @import "pages/organizations";
 
 html {
@@ -57,16 +58,26 @@ p {
 .successMessage{
   display: none;
   width: 100%;
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    padding: 32px;
+    line-height: 1.6em;
+  }
+
 }
 
 .loader {
   display: none;
   margin: 10% auto;
-  border: 16px solid #F3F3F3; /* Light grey */
-  border-top: 16px solid $primary-color; /* Blue */
+  border: 6px solid #F3F3F3; /* Light grey */
+  border-top: 6px solid $primary-color; /* Blue */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 45px;
+  height: 45px;
   animation: spin 1s linear infinite;
 }
 
@@ -109,6 +120,22 @@ p {
     color: $primary-color !important;
 
     h4 {
+      color: $primary-color !important;
+    }
+
+  }
+
+}
+
+.hover-input {
+  transition: all .2s ease;
+
+  &:hover, &:focus {
+    border-color: $primary-color !important;
+    color: $primary-color !important;
+    box-shadow: 0 2px 8px 0 rgba($primary-color, 0.2) !important;
+
+    input::placeholder {
       color: $primary-color !important;
     }
 
