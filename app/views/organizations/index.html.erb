@@ -49,12 +49,16 @@
 <section class="organizations">
   <div class="organizations__content">
     <%= render partial: 'search_filters' %>
+    <div class="loader"></div>
     <%= render partial: 'organizations_list', locals: { organizations: @organizations } %>
   </div>
 </section>
 <section class="recommend">
   <div class="recommend-content">
     <h3>Poznaješ više udruga kojima je potrebna pomoć?</h3>
-    <button>Predloži</button>
+    <button class="suggestionButton">Predloži</button>
   </div>
 </section>
+<div id="suggestionModal" data-target="suggestion.modal">
+  <%= render partial: 'components/suggestion_form' %>
+</div>

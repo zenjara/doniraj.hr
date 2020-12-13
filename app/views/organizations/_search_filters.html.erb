@@ -27,10 +27,10 @@
         <span id="mobile-placeholder-text">Mjesto</span>
         <%= inline_svg_tag 'chevron-down.svg', class: 'icon-sm' %>
       </div>
-<!--      <select name="city_id" id="" data-action="change->search#toggleMobileSelect">-->
-<!--        <option value=""></option>-->
-        <%#= options_for_select(City.pluck(:name, :id)) %>
-<!--      </select>-->
+      <!--      <select name="city_id" id="" data-action="change->search#toggleMobileSelect">-->
+      <!--        <option value=""></option>-->
+      <%#= options_for_select(City.pluck(:name, :id)) %>
+      <!--      </select>-->
       <%= f.select :city_id,
                    options_for_select(City.pluck(:name, :id)),
                    {include_blank: true, prompt: 'Mjesto'},

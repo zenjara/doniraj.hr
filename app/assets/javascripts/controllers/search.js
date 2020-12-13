@@ -20,6 +20,7 @@
         search() {
             clearTimeout(this.timeout);
             this.timeout = setTimeout(() => {
+                this.displayLoader();
                 Rails.fire(this.formTarget, 'submit');
                 Pagy.init(document.getElementById('organizationsList'))
             }, 400);
@@ -48,16 +49,16 @@
             e.preventDefault();
             let currentPage = parseInt($('span.current').text());
             let previousPage = currentPage - 1;
-
             this.initiatePaginationRequest(e, previousPage)
         }
 
         initiatePaginationRequest(e, page) {
+            this.displayLoader();
             $.ajax({
                 cache: false,
                 type: 'get',
                 data: {
-                    organization_name: $('#organization_name').val(),
+                    organization_name: $('#text-search').val(),
                     city_id: $('#citySelect').val(),
                     page: page
                 },
@@ -68,8 +69,14 @@
             });
         }
 
-        refreshList(data) {
-            document.getElementById('organizationsList').innerHTML = data.html;
+        displayLoader(){
+            $('.loader').show();
+            $('#organizationsList').hide();
+        }
+
+        refreshList(data){
+            $('.loader').hide();
+            $('#organizationsList').html(data.html).show();
             Pagy.init(document.getElementById('organizationsList'));
         }
 

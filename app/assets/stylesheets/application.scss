@@ -3,11 +3,12 @@
 
 @import "shared/fonts";
 @import "shared/colors";
-@import "components/footer";
-@import "components/pagination";
 @import "components/header";
+@import "components/suggestion_form";
 @import "components/search_filters";
 @import "components/ticket";
+@import "components/pagination";
+@import "components/footer";
 @import "pages/organizations";
 
 html {
@@ -42,6 +43,36 @@ p {
 
 .center {
   text-align: center;
+}
+
+.required {
+  color: #FF0505
+}
+
+.errorMessage {
+  margin-top: 8px;
+  color: #FF0505;
+}
+
+.successMessage{
+  display: none;
+  width: 100%;
+}
+
+.loader {
+  display: none;
+  margin: 10% auto;
+  border: 16px solid #F3F3F3; /* Light grey */
+  border-top: 16px solid $primary-color; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .truncate-text {
