@@ -13,18 +13,30 @@
         ];
 
         connect() {
+            const thisController = this
             $('.suggestionButton').click(function (e) {
-                e.preventDefault();
-                $('#suggestionModal').show();
+                const suggestionModal = $('#suggestionModal')
+                suggestionModal.show().addClass('modalBlur');
+
                 $('#organization_city_id').select2({
                     placeholder: "Mjesto",
                     allowClear: true
                 });
+
+                suggestionModal.unbind().click(function (e) {
+                    if (e.target === this) {
+                        thisController.closeForm()
+                    }
+                })
             })
         }
 
         closeForm() {
+            $('.successMessage').hide();
+            $('.suggestionFormContainer__content').show();
             $('#suggestionModal').hide();
+            this.formTarget.reset();
+            this.resetErrorMessages();
         }
 
         submit(event) {
@@ -37,13 +49,18 @@
         submitSuccess(event) {
             let [data, status, xhr] = event.detail;
             if (status === 'Created') {
-                this.formContainerTarget.innerHTML = data.html
+                $('.successMessage').show();
+                $('.suggestionFormContainer__content').hide();
             }
         }
 
-        validateForm() {
+        resetErrorMessages() {
             this.nameErrorTarget.textContent = ""
             this.cityErrorTarget.textContent = ""
+        }
+
+        validateForm() {
+            this.resetErrorMessages();
 
             if (this.nameTarget.value.trim() === "") {
                 this.nameTarget.focus();

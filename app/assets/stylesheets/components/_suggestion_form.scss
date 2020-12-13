@@ -1,18 +1,42 @@
+#suggestionModal.modalBlur, #suggestionModal.modalBlur > *:not(.suggestionFormContainer) {
+  background-color: rgba(41, 43, 44, 0.5);
+}
+
+.suggestionFormContainer, #suggestionModal {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+#suggestionModal {
+  display: none;
+  height: 100%;
+}
+
 .suggestionFormContainer {
   padding: 24px;
   margin: 0 auto;
   max-width: 528px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(25px);
+  background-color: #FFF;
   border: 1px solid;
   border-radius: 20px;
 
-  .suggestionFormContainer__content {
+  .closeContainer {
+    text-align: right;
+
     .formClose {
+      display: inline-block;
       margin-bottom: 16px;
-      text-align: right;
       cursor: pointer;
     }
+  }
+
+  .suggestionFormContainer__content {
+
 
     .suggestionFormContainer__header {
       margin-bottom: 40px;
@@ -53,11 +77,12 @@
           border-radius: 4px;
         }
 
-        textarea{
+        textarea {
           height: 120px;
+          max-width: 100%;
         }
 
-        .select2-container{
+        .select2-container {
           width: 50%;
         }
       }

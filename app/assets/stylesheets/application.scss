@@ -45,17 +45,16 @@ p {
   text-align: center;
 }
 
-.required{
+.required {
   color: #FF0505
 }
 
-#suggestionModal {
+.errorMessage {
+  margin-top: 8px;
+  color: #FF0505;
+}
+
+.successMessage{
   display: none;
-  position: fixed;
-  z-index: 100;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   width: 100%;
 }

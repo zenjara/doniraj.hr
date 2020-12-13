@@ -12,7 +12,7 @@ class OrganizationsController < ApplicationController
 
     if @organization.save
       OrganizationMailer.suggestion_email.deliver_later if params[:created_via_suggestion_form]
-      return render json: { html: render_to_string(action: '_thank_you', locals: {}, formats: [:html], layout: false) }, status: :created
+      return render json: {}, status: :created
     end
 
     render json: @organization.errors, status: :internal_server_error

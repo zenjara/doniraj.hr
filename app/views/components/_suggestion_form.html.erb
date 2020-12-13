@@ -1,8 +1,14 @@
 <div class="suggestionFormContainer" data-controller="suggestion" data-suggestion-target="formContainer">
-  <div class="suggestionFormContainer__content">
+  <div class="closeContainer">
     <div class="formClose" data-action="click->suggestion#closeForm">
       <%= inline_svg_tag 'close.svg', class: "ticket__toggle-action" %>
     </div>
+  </div>
+  <div class="successMessage">
+    <h1>Hvala na unosu!</h1>
+  </div>
+
+  <div class="suggestionFormContainer__content">
     <div class="suggestionFormContainer__header">
       <h4 class="suggestionFormContainer__title">Predloži udrugu</h4>
       <h5 class="suggestionFormContainer__hint"> Dajte nam info pls - PROMIJENI ME</h5>
@@ -16,7 +22,7 @@
         <div class='formSection' data-suggestion-target="formSection">
           <label for="name">Naziv udruge <span class="required">*</span></label>
           <%= f.text_field :name, 'data-suggestion-target': 'name' %>
-          <label for="name">
+          <label for="name" class="errorMessage">
             <span data-suggestion-target="nameError" data-validation-text="Required"></span>
           </label>
         </div>
@@ -24,7 +30,7 @@
         <div class='formSection' data-suggestion-target="formSection">
           <label for="city_id">Grad <span class="required">*</span></label>
           <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)), { include_blank: true }, 'data-suggestion-target': 'cityId') %>
-          <label for="organization">
+          <label for="organization" class="errorMessage">
             <span data-suggestion-target="cityError" data-validation-text="Required"></span>
           </label>
         </div>
@@ -52,5 +58,3 @@
 
   </div>
 </div>
-
-
