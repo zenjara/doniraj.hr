@@ -53,31 +53,21 @@
       <div id="form-content">
         <h4>Predloži udrugu</h4>
         <p class="mobile-form__info line-height-common">Što više informacija nam date, to bolje hehe</p>
-        <%= form_with model: @organization, scope: :organization, class: "suggestion_form", id: "suggestion_form_mobile",
-                      data: {remote: true, 'suggestion-target': 'form'} do |f| %>
-          <%= hidden_field_tag :created_via_suggestion_form, true %>
+        <form action="/organizations" data-remote="true" method="post" id="mobile-menu__form">
           <div class='form-section' data-menu-target="formSection">
-            <label for="name">Naziv udruge <span class="required">*</span></label>
-            <%= f.text_field :name, 'data-menu-target': 'name', required: true,
-                             oninvalid: "this.setCustomValidity('Unesite ime udruge.')",
-                             oninput: "this.setCustomValidity('')"
-            %>
+            <label for="mobile-menu__name">Naziv udruge <span class="required">*</span></label>
+            <input type="text" name="organization[name]" id="mobile-menu__name">
             <div class="mobile-form__error-message none" id="mobile-menu__name-error">
               <span>Ime udruge je obavezno polje.</span>
             </div>
           </div>
           <div class='form-section' data-menu-target="formSection">
-            <label for="city_id">Mjesto <span class="required">*</span></label>
+            <label for="mobile-menu__city-id">Mjesto <span class="required">*</span></label>
             <div class="select-input-wrapper mobile--show">
-              <%= select(:organization, :city_id, options_for_select(City.pluck(:name, :id)),
-                         {include_blank: true},
-                         'data-menu-target': 'cityId',
-                         'data-action': 'change->menu#selectFormCityMobile',
-                         required: true,
-                         oninvalid: "this.setCustomValidity('Odaberite mjesto.')",
-                         oninput: "this.setCustomValidity('')"
-                  )
-              %>
+              <select name="organization[city_id]" id="mobile-menu__city-id" data-action="change->menu#selectFormCityMobile">
+                <option value=""></option>
+                <%= options_for_select(City.pluck(:name, :id)) %>
+              </select>
               <div class="select-placeholder radius-m input-border-primary" style="border: none;">
                 <span id="mobile-form-placeholder-text">Mjesto</span>
                 <%= inline_svg_tag 'chevron-down.svg', class: 'icon-sm' %>
@@ -88,21 +78,21 @@
             </div>
           </div>
           <div class='form-section' data-menu-target="formSection">
-            <label for="description">Opis udruge</label>
-            <%= f.text_area :description, resize: 'none' %>
+            <label for="mobile-menu__description">Opis udruge</label>
+            <textarea name="organization[description]" id="mobile-menu__description" cols="30" rows="10"></textarea>
           </div>
           <div class='form-section' data-menu-target="formSection">
-            <label for="address">Adresa</label>
-            <%= f.text_field :address %>
+            <label for="mobile-menu__address">Adresa</label>
+            <input type="text" id="mobile-menu__address" name="organization[address]"/>
           </div>
           <div class='form-section' data-menu-target="formSection">
-            <label for="iban">IBAN</label>
-            <%= f.text_field :iban %>
+            <label for="mobile-menu__iban">IBAN</label>
+            <input type="text" name="organization[iban]" id="mobile-menu__iban"/>
           </div>
           <div class="form-footer">
-            <%= f.button 'Predloži', class: 'submit-button', 'data-action': 'menu#submit' %>
+            <button type="button" class="submit-button" data-action="click->menu#submit">Predloži</button>
           </div>
-        <% end %>
+        </form>
       </div>
     </div>
   </div>
