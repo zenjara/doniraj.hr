@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def index
-    @pagy, @organizations = pagy(Organization.verified)
+    @pagy, @organizations = pagy(Organization.includes(:city).verified)
   end
 
   def new
@@ -20,9 +20,9 @@ class OrganizationsController < ApplicationController
 
   def search
     @organizations = if params[:organization_name].present?
-                       Organization.verified.where('name ILIKE ?', "%#{params[:organization_name]}%")
+                       Organization.includes(:city).verified.where('name ILIKE ?', "%#{params[:organization_name]}%")
                      else
-                       Organization.verified
+                       Organization.includes(:city).verified
                      end
 
     @organizations = @organizations.where(city_id: params[:city_id]) if params[:city_id].present?
