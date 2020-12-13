@@ -14,8 +14,8 @@
 
         connect() {
             const thisController = this;
-            $('.suggestionButton').click(function (e) {
-                const suggestionModal = $('#suggestionModal')
+            $('.suggestion-button--desktop').click(function (e) {
+                const suggestionModal = $('#suggestionModal');
                 suggestionModal.show().addClass('modalBlur');
 
                 $('#organization_city_id').select2({
