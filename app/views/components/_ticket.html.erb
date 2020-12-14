@@ -51,8 +51,8 @@
       <div class="ticket__footer full-width">
         <div class="ticket__payment-info">
           <div class="payment-label">Iban</div>
-          <div class="payment-content" data-action="click->ticket#copy">
-            <input data-ticket-target="iban" value="<%= organization.iban %>" readonly/>
+          <div class="payment-content hover-text-color" data-action="click->ticket#copy">
+            <input data-ticket-target="iban" value="<%= organization.iban %>" readonly />
             <%= inline_svg_tag 'copy.svg', class: 'no-shrink' %>
           </div>
         </div>

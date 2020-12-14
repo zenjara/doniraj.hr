@@ -34,7 +34,7 @@
           <span>kontakt@doniraj.hr</span>
         </a>
         <span class="dot-separator"></span>
-        <a href="#" class="footer__navigation-item hover-text-color polica">Polica privatnosti</a>
+        <a href="<%= polica_privatnosti_path %>" class="footer__navigation-item hover-text-color polica">Polica privatnosti</a>
         <span class="dot-separator"></span>
         <a href="#" class="footer__navigation-item hover-text-color">
           <%= inline_svg_tag 'facebook-icon.svg' %>
@@ -43,7 +43,9 @@
     </div>
     <div class="mobile-form none" id="mobile-form">
       <p class="back-action">
-        <span data-action="click->menu#toggleMobileForm">&#8592; Natrag na izbornik</span>
+        <span data-action="click->menu#toggleMobileForm">
+          <%= inline_svg_tag 'arrow-left.svg', class: 'arrow-left-icon' %>
+          Natrag na izbornik</span>
       </p>
       <div class="none" id="mobile-menu__success-message">
         <h4>Hvala na unosu!</h4>
