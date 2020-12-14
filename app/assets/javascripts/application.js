@@ -17,14 +17,17 @@
 //= require jquery_ujs
 //= require select2
 //= require stimulus/init
+//= require pagy
 //= require_tree .
 
-(function($){
-    $(document).on('ready', function(){
-        $('#organization_city_id').select2();
-        $('#citySelect').select2({
-            placeholder: "Mjesto",
-            allowClear: true
+(function ($) {
+    $(document).on('ready', function () {
+        window.addEventListener("turbolinks:load", Pagy.init);
+        window.addEventListener("turbolinks:load", function () {
+            $('#citySelect').select2({
+                placeholder: "Mjesto",
+                allowClear: true
+            });
         });
     });
 }(jQuery));

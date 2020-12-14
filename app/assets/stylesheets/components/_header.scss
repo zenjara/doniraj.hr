@@ -1,10 +1,14 @@
 .header {
-  padding: 36px 0;
-  //background-color: #F0F0F0;
-  background-color: $test-background-green;
+  padding: 24px 0;
+  background-color: $primary-color;
   position: sticky;
   top: 0;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
   z-index: 20;
+
+  @media only screen and (max-width: 425px) {
+    padding: 24px 32px;
+  }
 
   .header__content {
     display: flex;
@@ -14,48 +18,275 @@
     max-width: 1172px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   h2 {
     color: #FFF;
     font-size: 48px;
     font-weight: 500;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media only screen and (max-width: 425px) {
+      font-size: 32px;
+    }
+
+  }
+
+  .header__menu {
+    display: none;
+    cursor: pointer;
+
+    @media only screen and (max-width: 425px) {
+      display: inline-flex;
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+
   }
 
   .header__nav-actions {
 
-    button {
-      border: 3px solid #FFF;
-      border-radius: 4px;
-      padding: 8px 20px;
-      color: #FFF;
-      background-color: transparent;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-      outline: none;
-      text-transform: uppercase;
-
-      &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
-      }
-
-      &:active {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-      }
-
-    }
-
-    a {
-      color: #FFF;
-      font-size: 16px;
-      text-decoration: none;
-      text-transform: uppercase;
+    @media only screen and (max-width: 425px) {
+      display: none;
     }
 
     :not(:last-child) {
       margin-right: 40px;
     }
 
+  }
+
+}
+
+button.nav-action {
+  border: 3px solid #FFF;
+  border-radius: 4px;
+  padding: 8px 20px;
+  color: #FFF;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  outline: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+  }
+
+  &:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  }
+
+}
+
+a.nav-action {
+  color: #FFF;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+.mobile-menu {
+  background-color: $primary-color;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  overflow-y: scroll;
+
+  &.mobile-menu--hidden {
+    display: none;
+  }
+
+  .mobile-menu__header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    color: #FFF;
+
+    .header__menu svg {
+      width: 28px;
+      height: 28px;
+    }
+
+  }
+
+  .mobile-menu__content {
+
+    h2 {
+      color: #FFF;
+      font-size: 32px;
+      font-weight: 500;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+  }
+
+  .mobile-menu__actions {
+    margin: 80px 0 160px 0;
+    text-align: center;
+
+
+    :not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #FFF;
+  }
+
+  .mobile-menu__footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+
+    .footer__navigation-item {
+      display: flex;
+      align-items: center;
+      color: #FFF;
+      font-size: 16px;
+      text-decoration: none;
+      transition: color .15s ease;
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
+      svg {
+        margin-right: 8px;
+      }
+
+      &.polica {
+        font-weight: 300;
+      }
+
+    }
+
+  }
+
+}
+
+#mobile-menu__success-message{
+  margin-top: 40px;
+
+  h4 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .emoji{
+    text-align: center;
+    font-size: 50px;
+  }
+
+  p {
+    line-height: 1.6em;
+  }
+
+}
+
+.mobile-form {
+  padding: 24px 32px;
+  color: #FFF;
+
+  .back-action {
+    margin-bottom: 16px;
+    text-decoration: underline;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .arrow-left-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+    }
+
+  }
+
+  h4 {
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  .mobile-form__info {
+    max-width: 320px;
+    margin: 24px 0 36px 0;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  form {
+    padding-bottom: 40px;
+
+    .form-section {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input, textarea {
+        width: 100%;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        padding: 0 8px;
+        background: #FFF;
+        outline: none;
+      }
+
+      textarea {
+        height: 80px;
+        padding: 8px;
+      }
+
+    }
+
+    .form-footer {
+      margin-top: 32px;
+    }
+
+    .submit-button {
+      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 0;
+      background: #145f4c;
+      color: #FFF;
+      font-size: 16px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+    }
+
+  }
+
+  .mobile-form__error-message {
+    margin-top: 8px;
+    text-decoration: underline;
   }
 
 }

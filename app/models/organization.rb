@@ -30,7 +30,7 @@ class Organization < ApplicationRecord
   scope :archived, -> { where(archived: true) }
 
   # Callbacks
-  after_create :send_suggestion_notification_email
+  # after_create :send_suggestion_notification_email
 
   # Virtual attributes
   attribute :created_via_suggestion_form, :boolean, default: false

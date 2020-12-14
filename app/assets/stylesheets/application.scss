@@ -3,11 +3,16 @@
 
 @import "shared/fonts";
 @import "shared/colors";
-@import "components/footer";
-@import "components/pagination";
 @import "components/header";
+@import "components/suggestion_form";
+@import "components/search_filters";
 @import "components/ticket";
+@import "components/pagination";
+@import "components/footer";
+@import "components/select-input";
 @import "pages/organizations";
+@import "pages/privacy_policy";
+@import "pages/about";
 
 html {
   box-sizing: border-box;
@@ -32,13 +37,153 @@ h5,
 h6 {
   margin: 0;
   color: $text-dark-1;
-  line-height: 1.5;
+  line-height: 1.26em;
 }
 
 p {
   margin: 0;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 4.5rem;    /* Footer height */
+}
+
 .center {
   text-align: center;
+}
+
+.required {
+  color: #FF0505
+}
+
+.errorMessage {
+  margin-top: 8px;
+  color: #FF0505;
+}
+
+.successMessage{
+  display: none;
+  width: 100%;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .emoji{
+    text-align: center;
+    font-size: 50px;
+  }
+
+  p {
+    padding: 32px;
+    line-height: 1.6em;
+  }
+
+}
+
+.loader {
+  display: none;
+  margin: 10% auto;
+  border: 6px solid #F3F3F3;
+  border-top: 6px solid $primary-color;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.line-height-common {
+  line-height: 1.4em;
+}
+
+.icon-sm {
+  height: 18px;
+  width: 18px;
+}
+
+.hover-text-color {
+  transition: color .15s ease;
+
+  h4 {
+    transition: color .15s ease;
+  }
+
+  &:hover {
+    color: $primary-color !important;
+
+    h4 {
+      color: $primary-color !important;
+    }
+
+  }
+
+}
+
+.hover-input {
+  transition: all .2s ease;
+
+  &:hover, &:focus {
+    border-color: $primary-color !important;
+    color: $primary-color !important;
+    box-shadow: 0 2px 8px 0 rgba($primary-color, 0.2) !important;
+
+    input::placeholder {
+      color: $primary-color !important;
+    }
+
+  }
+
+}
+
+.break-text {
+  word-break: break-all;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+.input-border-primary {
+  border: 2px solid rgba(#111, 0.15);
+}
+
+.radius-m {
+  border-radius: 4px;
+}
+
+.lock {
+  overflow: hidden;
 }

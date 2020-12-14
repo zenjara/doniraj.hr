@@ -1,9 +1,101 @@
-<header class="header">
+<header class="header" data-controller="menu">
   <div class="header__content">
-    <h2>doniraj.hr</h2>
+    <a href="<%= root_path %>"><h2>doniraj.hr</h2></a>
+    <div class="header__menu" id="header__menu">
+      <%= inline_svg_tag 'hamburger.svg', class: 'menu__hamburger-icon', data: {action: 'click->menu#toggleMenu'} %>
+    </div>
     <div class="header__nav-actions">
-      <button>Predloži udrugu</button>
-      <a href="#">O nama</a>
+      <button class="suggestion-button--desktop nav-action">Predloži udrugu</button>
+      <a class="nav-action" href="<%= o_nama_path %>">O nama</a>
     </div>
   </div>
 </header>
+<div class="mobile-menu mobile-menu--hidden" id="mobile-menu" data-controller="menu">
+  <div class="mobile-menu__content">
+    <div class="mobile-menu__header-content">
+      <h2>doniraj.hr</h2>
+      <div class="header__menu">
+        <%= inline_svg_tag 'close.svg', class: 'menu__close-icon header__menu--closed', data: {action: 'click->menu#toggleMenu'} %>
+      </div>
+    </div>
+    <div id="mobile-menu__actions-wrapper">
+      <div class="mobile-menu__actions">
+        <div>
+          <button class="nav-action" data-action="click->menu#toggleMobileForm">Predloži udrugu</button>
+        </div>
+        <div>
+          <a class="nav-action" href="<%= o_nama_path %>">O nama</a>
+        </div>
+      </div>
+      <hr/>
+      <div class="mobile-menu__footer-content">
+        <a href="mailto:kontakt@doniraj.hr" class="footer__navigation-item hover-text-color">
+          <%= inline_svg_tag 'email' %>
+          <span>kontakt@doniraj.hr</span>
+        </a>
+        <span class="dot-separator"></span>
+        <a href="<%= polica_privatnosti_path %>" class="footer__navigation-item hover-text-color polica">Polica privatnosti</a>
+        <span class="dot-separator"></span>
+        <a href="#" class="footer__navigation-item hover-text-color">
+          <%= inline_svg_tag 'facebook-icon.svg' %>
+        </a>
+      </div>
+    </div>
+    <div class="mobile-form none" id="mobile-form">
+      <p class="back-action">
+        <span data-action="click->menu#toggleMobileForm">
+          <%= inline_svg_tag 'arrow-left.svg', class: 'arrow-left-icon' %>
+          Natrag na izbornik</span>
+      </p>
+      <div class="none" id="mobile-menu__success-message">
+        <h4>Hvala na prijedlogu!</h4>
+        <div class="emoji">🙌</div>
+        <p class="mobile-form__info line-height-common">Podatke o predloženoj udruzi ćemo potvrditi i obraditi te ju u što kraćem roku dodati u naš sustav.</p>
+      </div>
+      <div id="form-content">
+        <h4>Predloži udrugu</h4>
+        <p class="mobile-form__info line-height-common">Što više informacija nam date, to bolje hehe</p>
+        <form action="/organizations" data-remote="true" method="post" id="mobile-menu__form">
+          <div class='form-section' data-menu-target="formSection">
+            <label for="mobile-menu__name">Naziv udruge <span class="required">*</span></label>
+            <input type="text" name="organization[name]" id="mobile-menu__name">
+            <div class="mobile-form__error-message none" id="mobile-menu__name-error">
+              <span>Ime udruge je obavezno polje.</span>
+            </div>
+          </div>
+          <div class='form-section' data-menu-target="formSection">
+            <label for="mobile-menu__city-id">Mjesto <span class="required">*</span></label>
+            <div class="select-input-wrapper mobile--show">
+              <select name="organization[city_id]" id="mobile-menu__city-id" data-action="change->menu#selectFormCityMobile">
+                <option value=""></option>
+                <%= options_for_select(City.pluck(:name, :id)) %>
+              </select>
+              <div class="select-placeholder radius-m input-border-primary" style="border: none;">
+                <span id="mobile-form-placeholder-text">Mjesto</span>
+                <%= inline_svg_tag 'chevron-down.svg', class: 'icon-sm' %>
+              </div>
+            </div>
+            <div class="mobile-form__error-message none" id="mobile-menu__city-error">
+              <span>Molimo odaberite mjesto.</span>
+            </div>
+          </div>
+          <div class='form-section' data-menu-target="formSection">
+            <label for="mobile-menu__description">Opis udruge</label>
+            <textarea name="organization[description]" id="mobile-menu__description" cols="30" rows="10"></textarea>
+          </div>
+          <div class='form-section' data-menu-target="formSection">
+            <label for="mobile-menu__address">Adresa</label>
+            <input type="text" id="mobile-menu__address" name="organization[address]"/>
+          </div>
+          <div class='form-section' data-menu-target="formSection">
+            <label for="mobile-menu__iban">IBAN</label>
+            <input type="text" name="organization[iban]" id="mobile-menu__iban"/>
+          </div>
+          <div class="form-footer">
+            <button type="button" class="submit-button" data-action="click->menu#submit">Predloži</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

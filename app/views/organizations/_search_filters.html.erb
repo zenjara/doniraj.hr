@@ -2,18 +2,35 @@
   <%= form_with url: search_path,
                 method: :get,
                 id: 'searchForm',
-                data: { action: "ajax:success->search#handleResults", 'search-target': "form" } do |f|
+                data: {action: "ajax:success->search#handleResults", 'search-target': "form"} do |f|
   %>
-    <div>
-      <%= f.text_field :organization_name, autocomplete: "off", placeholder: "Pretraži udruge", 'data-search-target': 'input', 'data-action': 'keydown->search#search' %>
+    <div class="text-input-wrapper hover-input">
+      <label for="text-search">
+        <%= inline_svg_tag 'search.svg' %>
+      </label>
+      <%= f.text_field :organization_name, autocomplete: "off", placeholder: "Pretraži udruge", 'data-search-target': 'input', 'data-action': 'keydown->search#search', id: 'text-search' %>
+    </div>
+    <div class="select-input-wrapper mobile--hide">
       <%= f.select :city_id,
                    options_for_select(City.pluck(:name, :id)),
-                   { include_blank: true },
-                   { 'data-search-target': 'select',
-                     'data-action': 'change->search#search',
-                     id: 'citySelect',
-                     class: ''
-                   } %>
+                   {include_blank: true, prompt: 'Mjesto'},
+                   {
+                       'data-search-target': 'select',
+                       'data-action': 'change->search#search',
+                       id: 'citySelect',
+                       class: ''
+                   }
+      %>
+    </div>
+    <div class="select-input-wrapper mobile--show">
+      <div class="select-placeholder radius-m input-border-primary">
+        <span id="mobile-placeholder-text">Mjesto</span>
+        <%= inline_svg_tag 'chevron-down.svg', class: 'icon-sm' %>
+      </div>
+      <select name="city_id_mobile" id="city_id_mobile" data-action="change->search#selectCityFilterMobile">
+        <option value=""></option>
+        <%= options_for_select(City.pluck(:name, :id)) %>
+      </select>
     </div>
   <% end %>
 </div>

@@ -1,0 +1,94 @@
+.organizations-search {
+
+  form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .text-input-wrapper {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      height: 50px;
+      border: 2px solid rgba(#111, 0.15);
+      border-radius: 4px;
+      padding: 0 8px;
+      margin-right: 16px;
+      color: rgba(#111, 0.25);
+      transition: all .2s ease;
+      outline: none;
+
+      @media only screen and (max-width: 425px) {
+        margin: 24px 0;
+      }
+
+      ::placeholder {
+        color: #999;
+      }
+
+      label {
+        display: inline-flex;
+        margin-right: 8px;
+      }
+
+      input {
+        flex-grow: 1;
+        border: none;
+        padding: 14px 0;
+        outline: none;
+        caret-color: $primary-color;
+
+        &::placeholder {
+          font-size: 15px;
+          font-weight: 400;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.select-input-wrapper {
+  align-self: stretch;
+
+  &.mobile--hide {
+
+    @media only screen and (max-width: 425px) {
+      display: none;
+    }
+
+  }
+
+  &.mobile--show {
+    display: none;
+    flex-basis: 100%;
+    position: relative;
+
+    @media only screen and (max-width: 425px) {
+      display: block;
+    }
+
+    select {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+    }
+
+  }
+
+  .select-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 10px 16px;
+    color: #999;
+    cursor: pointer;
+  }
+
+}

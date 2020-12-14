@@ -21,9 +21,9 @@
 
   span.current {
     padding: 8px 16px;
-    background-color: $test-background-green;
+    background-color: $primary-color;
     color: white;
-    border: 1px solid $test-background-green;
+    border: 1px solid $primary-color;
   }
 
   a:hover:not(.active) {
@@ -39,4 +39,8 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
+}
+
+#paginationContainer {
+  margin: 42px 0;
 }

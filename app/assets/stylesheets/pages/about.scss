@@ -1,0 +1,84 @@
+.about {
+  margin: 0 auto;
+  padding: 56px 0;
+  max-width: 820px;
+
+  @media only screen and (max-width: 425px) {
+    padding: 32px 16px;
+  }
+
+  .about__return_to_home {
+
+    margin-bottom: 24px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      color: $text-dark-1;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-color !important;
+      }
+    }
+
+
+  }
+
+  .about__content {
+    h1 {
+      margin-bottom: 24px;
+      font-size: 2.25rem;
+      font-weight: 500;
+
+      @media only screen and (max-width: 425px) {
+        font-size: 2rem;
+      }
+    }
+
+    h4 {
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 1.5rem;
+
+      @media only screen and (max-width: 425px) {
+        font-size: 1.45rem;
+      }
+    }
+
+    h5 {
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 1.1rem;
+
+      @media only screen and (max-width: 425px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    p {
+      margin-bottom: 24px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 24px;
+
+      a {
+        font-weight: 400;
+        color: inherit;
+      }
+
+      @media only screen and (max-width: 425px) {
+        font-size: 1.1rem;
+      }
+    }
+
+  }
+}

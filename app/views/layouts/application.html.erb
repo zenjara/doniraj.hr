@@ -4,6 +4,9 @@
   <title>doniraj.hr</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#1F997B"/>
+  <meta name="turbolinks-cache-control" content="no-cache">
   <script src="https://cdn.jsdelivr.net/gh/pkoretic/pdf417-generator@master/lib/libbcmath.js" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/gh/pkoretic/pdf417-generator@master/lib/bcmath.js" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/gh/pkoretic/pdf417-generator@master/lib/pdf417.js" type="text/javascript"></script>
@@ -22,10 +25,19 @@
         gtag('js', new Date());
     </script>
   <% end %>
+  <%= favicon_link_tag asset_path('favicon_heart.png') %>
+  <link rel='icon' href='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/263/green-heart_1f49a.png'>
 </head>
-<body>
-<%= render partial: 'components/header' %>
-<%= yield %>
-<%= render partial: 'components/footer' %>
+<body id="body">
+<div id="page-container">
+  <div id="content-wrap">
+    <%= render partial: 'components/header' %>
+    <%= yield %>
+  </div>
+  <%= render partial: 'components/footer' %>
+  <div id="suggestionModal" data-target="suggestion.modal">
+    <%= render partial: 'components/suggestion_form' %>
+  </div>
+</div>
 </body>
 </html>

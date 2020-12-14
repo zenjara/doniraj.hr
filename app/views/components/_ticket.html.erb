@@ -1,38 +1,59 @@
-<div class="ticket" data-controller="ticket" data-action="click->ticket#toggleCard">
+<div class="ticket" data-controller="ticket">
   <input type="hidden" data-ticket-target="organizationId" value="<%= organization.id %>"/>
   <input type="hidden" data-ticket-target="barcode" value="<%= organization.generate_barcode %>"/>
   <div class="ticket__content">
-    <div class="ticket__header">
+    <div class="ticket__header hover-text-color" data-action="click->ticket#toggleCard">
       <h4 class="ticket__name">
         <%= organization.name %>
       </h4>
-      <%= inline_svg_tag 'chevron-down.svg', class: "ticket__toggle-action" %>
+      <%= inline_svg_tag 'chevron-down.svg', class: "ticket__toggle-action no-shrink", id: "ticket__toggle-action--#{organization.id}" %>
     </div>
     <div class="ticket__info">
-      <span class="ticket__address"><%= organization.address %>
-        , <strong><%= organization.city.name %></strong></span>
-      <a href="<%= organization.website %>" target="_blank">
-        <%= inline_svg_tag 'globe.svg' %><%= organization.website %>
-      </a>
+      <div class="ticket__address">
+        <%= inline_svg_tag 'pin.svg', class: 'no-shrink icon-sm' %>
+        <span class="truncate-text" title="<%= organization.address %>,&nbsp;<%= organization.city.name %>">
+          <%= organization.address %>,&nbsp;
+          <strong><%= organization.city.name %></strong>
+        </span>
+      </div>
+      <div class="full-width">
+        <a class="hover-text-color" href="<%= organization.website %>" target="_blank">
+          <%= inline_svg_tag 'globe.svg', class: 'icon-sm no-shrink' %>
+          <% if !organization.website.blank? %>
+            <span class="truncate-text"><%= organization.website %></span>
+          <% else %>
+            <span>&mdash;</span>
+          <% end %>
+        </a>
+      </div>
     </div>
     <div class="ticket__body ticket__body--hidden" data-ticket-target="body">
-      <p><%= organization.description %></p>
-      <div>
-        <div class="ticket__contact">
-          <%= inline_svg_tag 'phone.svg' %>
-          <span><%= organization.telephone %></span>
-        </div>
-        <div class="ticket__contact">
-          <a href="mailto:<%= organization.email %>"><%= inline_svg_tag 'email.svg' %><%= organization.email %></a>
-        </div>
+      <p class="line-height-common"><%= organization.description %></p>
+      <div class="ticket__contact full-width">
+        <%= inline_svg_tag 'phone.svg', class: 'icon-sm no-shrink' %>
+        <% if !organization.telephone.blank? %>
+          <span class="truncate-text" title="<%= organization.telephone %>"><%= organization.telephone %></span>
+        <% else %>
+          <span>&mdash;</span>
+        <% end %>
+      </div>
+      <div class="ticket__contact full-width">
+        <% if !organization.email.blank? %>
+          <a class="hover-text-color" href="mailto:<%= organization.email %>">
+            <%= inline_svg_tag 'email.svg', class: 'icon-sm no-shrink' %>
+            <span class="break-text" title="<%= organization.email %>"><%= organization.email %></span>
+          </a>
+        <% else %>
+          <span>&mdash;</span>
+        <% end %>
       </div>
       <hr/>
-      <div class="ticket__footer">
+      <div class="ticket__footer full-width">
         <div class="ticket__payment-info">
           <div class="payment-label">Iban</div>
-          <div class="payment-content" data-action="click->ticket#copy">
-            <input data-ticket-target="iban" value="<%= organization.iban %>" readonly/>
-            <%= inline_svg_tag 'copy.svg' %>
+          <div class="payment-content hover-text-color" data-action="click->ticket#copy">
+            <input data-ticket-target="iban" value="<%= organization.iban %>" readonly />
+            <%= inline_svg_tag 'copy.svg', class: 'no-shrink' %>
           </div>
         </div>
         <div class="ticket__payment-info">
