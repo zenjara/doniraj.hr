@@ -90,6 +90,11 @@ a.nav-action {
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
 }
 
 .mobile-menu {
@@ -126,13 +131,13 @@ a.nav-action {
       color: #FFF;
       font-size: 32px;
       font-weight: 500;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
 
   }
 
   .mobile-menu__actions {
-    margin: 80px 0;
+    margin: 80px 0 160px 0;
     text-align: center;
 
 
@@ -186,6 +191,18 @@ a.nav-action {
   .back-action {
     margin-bottom: 16px;
     text-decoration: underline;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .arrow-left-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+    }
+
   }
 
   h4 {
@@ -239,7 +256,7 @@ a.nav-action {
       border: none;
       border-radius: 4px;
       padding: 8px 0;
-      background: #39624C;
+      background: #145f4c;
       color: #FFF;
       font-size: 16px;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

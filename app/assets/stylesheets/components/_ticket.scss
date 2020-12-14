@@ -190,6 +190,13 @@
     .payment-content {
       display: flex;
       align-items: center;
+      cursor: pointer;
+
+      input {
+        color: inherit;
+        cursor: pointer;
+        outline: none;
+      }
 
       span {
         margin-right: 8px;

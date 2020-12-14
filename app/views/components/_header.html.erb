@@ -43,7 +43,9 @@
     </div>
     <div class="mobile-form none" id="mobile-form">
       <p class="back-action">
-        <span data-action="click->menu#toggleMobileForm">&#8592; Natrag na izbornik</span>
+        <span data-action="click->menu#toggleMobileForm">
+          <%= inline_svg_tag 'arrow-left.svg', class: 'arrow-left-icon' %>
+          Natrag na izbornik</span>
       </p>
       <div class="none" id="mobile-menu__success-message">
         <h4>Hvala na unosu!</h4>
