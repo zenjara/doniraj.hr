@@ -29,9 +29,10 @@ class OrganizationsController < ApplicationController
     @organizations = @organizations.where(city_id: params[:city_id_mobile]) if params[:city_id_mobile].present?
     @pagy, @organizations = pagy(@organizations)
 
-    render json: { html: render_to_string(action: '_organizations_list',
-                                          locals: { organizations: @organizations },
-                                          formats: [:html], layout: false) }
+    no_results_found = @organizations.present? ? false : true
+    render json: { no_results_found: no_results_found, html: render_to_string(action: '_organizations_list',
+                                                                              locals: { organizations: @organizations },
+                                                                              formats: [:html], layout: false) }
   end
 
   private

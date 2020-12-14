@@ -1,4 +1,7 @@
 <div class="organizations-list__content" data-search-target="results" id="organizationsList">
+  <div class="noResults">
+    <p>Nisu pronađeni rezultati.</p>
+  </div>
   <% organizations.each do |organization| %>
     <%= render partial: 'components/ticket', locals: {organization: organization} %>
   <% end %>
