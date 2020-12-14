@@ -2,7 +2,6 @@
     const application = Stimulus.Application.start();
 
     application.register("ticket", class extends Stimulus.Controller {
-        // static targets = ['body', 'organizationId', 'barcode', 'iban'];
         static get targets() {
             return ['body', 'organizationId', 'barcode', 'iban'];
         }

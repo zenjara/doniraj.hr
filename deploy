@@ -21,7 +21,7 @@ ssh -t root@207.154.201.209 -i $path_to_libra "
   git checkout develop
   git pull origin develop
   source ~/.zshrc
-  bundle install
+  RAILS_ENV=production bundle install
   RAILS_ENV=production rails db:migrate:with_data
   RAILS_ENV=production rails assets:precompile
   pkill --pidfile tmp/pids/server.pid

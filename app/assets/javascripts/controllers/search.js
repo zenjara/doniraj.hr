@@ -2,7 +2,6 @@
     const application = Stimulus.Application.start();
 
     application.register("search", class extends Stimulus.Controller {
-        // static targets = ["results", "form", "input", "select", "pagination"];
         static get targets() {
             return ["results", "form", "input", "select", "pagination"];
         }
