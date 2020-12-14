@@ -6,9 +6,22 @@
     padding: 52px 0 72px 0;
     max-width: 972px;
 
+    h1 {
+      margin: 72px auto;
+      font-family: 'Castoro', serif;
+      font-size: 48px;
+      letter-spacing: 1.4px;
+      text-align: center;
+    }
+
     @media only screen and (max-width: 425px) {
       padding: 32px;
-      background-color: $primary-color;
+
+      h1 {
+        margin: 48px 0;
+        font-size: 40px;
+      }
+
     }
 
     p {
@@ -76,7 +89,7 @@
           height: 84px;
           width: 84px;
           margin-right: 24px;
-          background-color: $primary-color-light;
+          background-color: $primary-color;
 
           svg.card__image--minor {
             height: 60px;
