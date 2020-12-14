@@ -2,15 +2,27 @@
     const application = Stimulus.Application.start();
 
     application.register("suggestion", class extends Stimulus.Controller {
-        static targets = [
-            'formContainer',
-            'form',
-            'formSection',
-            'name',
-            'cityId',
-            'nameError',
-            'cityError'
-        ];
+        // static targets = [
+        //     'formContainer',
+        //     'form',
+        //     'formSection',
+        //     'name',
+        //     'cityId',
+        //     'nameError',
+        //     'cityError'
+        // ];
+
+        static get targets() {
+            return [
+                'formContainer',
+                'form',
+                'formSection',
+                'name',
+                'cityId',
+                'nameError',
+                'cityError'
+            ];
+        }
 
         connect() {
             const thisController = this;
