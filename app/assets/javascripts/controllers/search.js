@@ -71,12 +71,16 @@
 
         displayLoader(){
             $('.loader').show();
+            $('.noResults').hide();
             $('#organizationsList').hide();
         }
 
         refreshList(data){
             $('.loader').hide();
             $('#organizationsList').html(data.html).show();
+            if(data.no_results_found == true){
+                $('.noResults').show();
+            }
             Pagy.init(document.getElementById('organizationsList'));
         }
 

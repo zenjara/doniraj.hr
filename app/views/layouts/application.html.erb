@@ -25,12 +25,19 @@
         gtag('js', new Date());
     </script>
   <% end %>
-  <%= favicon_link_tag asset_path('favicon_heart.png')%>
+  <%= favicon_link_tag asset_path('favicon_heart.png') %>
   <link rel='icon' href='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/263/green-heart_1f49a.png'>
 </head>
 <body id="body">
-<%= render partial: 'components/header' %>
-<%= yield %>
-<%= render partial: 'components/footer' %>
+<div id="page-container">
+  <div id="content-wrap">
+    <%= render partial: 'components/header' %>
+    <%= yield %>
+  </div>
+  <%= render partial: 'components/footer' %>
+  <div id="suggestionModal" data-target="suggestion.modal">
+    <%= render partial: 'components/suggestion_form' %>
+  </div>
+</div>
 </body>
 </html>

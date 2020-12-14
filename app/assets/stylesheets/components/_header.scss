@@ -184,6 +184,25 @@ a.nav-action {
 
 }
 
+#mobile-menu__success-message{
+  margin-top: 40px;
+
+  h4 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .emoji{
+    text-align: center;
+    font-size: 50px;
+  }
+
+  p {
+    line-height: 1.6em;
+  }
+
+}
+
 .mobile-form {
   padding: 24px 32px;
   color: #FFF;

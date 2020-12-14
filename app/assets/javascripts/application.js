@@ -20,12 +20,14 @@
 //= require pagy
 //= require_tree .
 
-(function($){
-    $(document).on('ready', function(){
+(function ($) {
+    $(document).on('ready', function () {
         window.addEventListener("turbolinks:load", Pagy.init);
-        $('#citySelect').select2({
-            placeholder: "Mjesto",
-            allowClear: true
+        window.addEventListener("turbolinks:load", function () {
+            $('#citySelect').select2({
+                placeholder: "Mjesto",
+                allowClear: true
+            });
         });
     });
 }(jQuery));
