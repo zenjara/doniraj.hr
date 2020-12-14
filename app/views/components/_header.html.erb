@@ -1,12 +1,12 @@
 <header class="header" data-controller="menu">
   <div class="header__content">
-    <h2>doniraj.hr</h2>
+    <a href="<%= root_path %>"><h2>doniraj.hr</h2></a>
     <div class="header__menu" id="header__menu">
       <%= inline_svg_tag 'hamburger.svg', class: 'menu__hamburger-icon', data: {action: 'click->menu#toggleMenu'} %>
     </div>
     <div class="header__nav-actions">
       <button class="suggestionButton nav-action">Predloži udrugu</button>
-      <a class="nav-action" href="#">O nama</a>
+      <a class="nav-action" href="<%= o_nama_path %>">O nama</a>
     </div>
   </div>
 </header>
@@ -24,7 +24,7 @@
           <button class="nav-action" data-action="click->menu#toggleMobileForm">Predloži udrugu</button>
         </div>
         <div>
-          <a class="nav-action" href="#">O nama</a>
+          <a class="nav-action" href="<%= o_nama_path %>">O nama</a>
         </div>
       </div>
       <hr/>

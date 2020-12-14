@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   resources :organizations
   get '/search', to: 'organizations#search'
+  get '/o-nama', to: 'website#about'
+  get '/polica-privatnosti', to: 'website#privacy_policy'
 
   root 'organizations#index'
 

@@ -11,6 +11,8 @@
 @import "components/footer";
 @import "components/select-input";
 @import "pages/organizations";
+@import "pages/privacy_policy";
+@import "pages/about";
 
 html {
   box-sizing: border-box;
@@ -79,8 +81,8 @@ p {
 .loader {
   display: none;
   margin: 10% auto;
-  border: 6px solid #F3F3F3; /* Light grey */
-  border-top: 6px solid $primary-color; /* Blue */
+  border: 6px solid #F3F3F3;
+  border-top: 6px solid $primary-color;
   border-radius: 50%;
   width: 45px;
   height: 45px;
