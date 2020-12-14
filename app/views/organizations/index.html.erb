@@ -51,9 +51,10 @@
   </div>
 </section>
 <section class="recommend">
-  <div class="recommend-content">
+  <div class="recommend-content" data-controller="menu">
     <h3>Poznaješ više udruga kojima je potrebna pomoć?</h3>
-    <button class="suggestionButton">Predloži</button>
+    <button class="suggestion-button--desktop">Predloži</button>
+    <button class="suggestion-button--mobile" data-action="click->menu#toggleMenu">Predloži</button>
   </div>
 </section>
 <div id="suggestionModal" data-target="suggestion.modal">

@@ -47,8 +47,8 @@
 
         submit(e) {
             e.preventDefault();
-            const nameInput = document.querySelector('[data-menu-target="name"]');
-            const cityInput = document.querySelector('[data-menu-target="cityId"]');
+            const nameInput = document.getElementById('mobile-menu__name');
+            const cityInput = document.getElementById('mobile-menu__city-id');
 
             const $nameError = $('#mobile-menu__name-error');
             const $cityError = $('#mobile-menu__city-error');
@@ -67,7 +67,7 @@
 
             $cityError.hide();
 
-            const $form = $('#suggestion_form_mobile');
+            const $form = $('#mobile-menu__form');
             const url = $form.attr('action');
             const data = $form.serialize();
 
@@ -81,7 +81,7 @@
         }
 
         handleSuccess() {
-            document.getElementById('suggestion_form_mobile').reset();
+            document.getElementById('mobile-menu__form').reset();
             const newValueElement = `<span style="color: #111;">Mjesto</span>`;
             const placeholder = document.getElementById('mobile-form-placeholder-text');
             placeholder.innerHTML = newValueElement;

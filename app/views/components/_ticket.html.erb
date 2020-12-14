@@ -19,7 +19,11 @@
       <div class="full-width">
         <a class="hover-text-color" href="<%= organization.website %>" target="_blank">
           <%= inline_svg_tag 'globe.svg', class: 'icon-sm no-shrink' %>
-          <span class="truncate-text"><%= organization.website %></span>
+          <% if !organization.website.blank? %>
+            <span class="truncate-text"><%= organization.website %></span>
+          <% else %>
+            <span>&mdash;</span>
+          <% end %>
         </a>
       </div>
     </div>
