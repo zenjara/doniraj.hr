@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def index
-    @pagy, @organizations = pagy(Organization.includes(:city).verified)
+    @pagy, @organizations = pagy(Organization.includes(:city).order('LOWER(name)').verified)
   end
 
   def new
@@ -27,6 +27,7 @@ class OrganizationsController < ApplicationController
 
     @organizations = @organizations.where(city_id: params[:city_id]) if params[:city_id].present?
     @organizations = @organizations.where(city_id: params[:city_id_mobile]) if params[:city_id_mobile].present?
+    @organizations = @organizations.order('LOWER(name)')
     @pagy, @organizations = pagy(@organizations)
 
     no_results_found = @organizations.present? ? false : true
