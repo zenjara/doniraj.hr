@@ -18,7 +18,7 @@
             const thisController = this;
             $('.suggestion-button--desktop').click(function (e) {
                 const suggestionModal = $('#suggestionModal');
-                suggestionModal.show().addClass('modalBlur');
+                suggestionModal.removeClass('none');
 
                 $('#organization_city_id').select2({
                     placeholder: "Mjesto",
@@ -36,7 +36,7 @@
         closeForm() {
             $('.successMessage').hide();
             $('.suggestionFormContainer__content').show();
-            $('#suggestionModal').hide();
+            $('#suggestionModal').addClass('none');
             this.formTarget.reset();
             this.resetErrorMessages();
         }

@@ -1,25 +1,18 @@
-#suggestionModal.modalBlur, #suggestionModal.modalBlur > *:not(.suggestionFormContainer) {
+#suggestionModal {
+  display: flex;
+  align-items: center;
   background-color: rgba(41, 43, 44, 0.7);
-}
-
-.suggestionFormContainer, #suggestionModal {
   position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 100%;
 
   @media only screen and (max-width: 425px) {
     display: none;
   }
 
-}
-
-#suggestionModal {
-  display: none;
-  height: 100%;
 }
 
 .suggestionFormContainer {
