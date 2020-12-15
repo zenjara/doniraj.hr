@@ -8,8 +8,9 @@
 
     h1 {
       margin: 32px auto 72px auto;
-      font-family: 'Castoro', serif;
+      font-family: 'Open Sans', serif;
       font-size: 56px;
+      font-weight: 400;
       letter-spacing: 1.4px;
       text-align: center;
     }
@@ -192,11 +193,11 @@
 }
 
 .recommend {
-  padding: 36px 0;
+  padding: 44px 0;
   background: rgba(237, 237, 237, 0.6);
 
   @media only screen and (max-width: 425px) {
-    padding: 24px 32px;
+    padding: 32px;
   }
 
   .recommend-content {
