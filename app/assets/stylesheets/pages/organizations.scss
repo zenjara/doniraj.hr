@@ -80,6 +80,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
           border-radius: 50%;
           height: 84px;
           width: 84px;
@@ -123,6 +124,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     border-radius: 50%;
     height: 140px;
     width: 140px;

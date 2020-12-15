@@ -1,6 +1,8 @@
 <header class="header" data-controller="menu">
   <div class="header__content">
-    <a href="<%= root_path %>"><h2>doniraj.hr</h2></a>
+    <a href="<%= root_path %>">
+      <h2>doniraj<span>.hr</span></h2>
+    </a>
     <div class="header__menu" id="header__menu">
       <%= inline_svg_tag 'hamburger.svg', class: 'menu__hamburger-icon', data: {action: 'click->menu#toggleMenu'} %>
     </div>
