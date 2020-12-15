@@ -56,22 +56,17 @@
       .card--mobile {
         display: flex;
         align-items: center;
-        padding-left: 8px;
+        padding-left: 16px;
 
         &.card--major {
-          padding-left: 0;
-
-          .card__image-wrapper {
-            height: 100px;
-            width: 100px;
-          }
 
           svg {
-            height: 84px;
-            width: 84px;
+            height: 60px;
+            width: 60px;
           }
 
           span {
+            font-weight: 600;
             font-size: 20px;
           }
 
