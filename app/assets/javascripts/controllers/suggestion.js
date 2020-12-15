@@ -20,6 +20,9 @@
                 const suggestionModal = $('#suggestionModal');
                 suggestionModal.removeClass('none');
 
+                const $body = $('body');
+                $body.addClass('lock');
+
                 $('#organization_city_id').select2({
                     placeholder: "Mjesto",
                     allowClear: true
@@ -37,6 +40,9 @@
             $('.successMessage').hide();
             $('.suggestionFormContainer__content').show();
             $('#suggestionModal').addClass('none');
+
+            const $body = $('body');
+            $body.removeClass('lock');
             this.formTarget.reset();
             this.resetErrorMessages();
         }
