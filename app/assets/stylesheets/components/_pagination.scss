@@ -30,12 +30,26 @@
     background-color: #ddd;
   }
 
-  span:first-child {
+  span.page.prev {
+    a {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  span.page.prev.disabled {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
 
-  a:last-child {
+  span.page.next {
+    a {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  span.page.next.disabled {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
