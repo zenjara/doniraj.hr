@@ -6,7 +6,8 @@
             return ['body', 'organizationId', 'barcode', 'iban'];
         }
 
-        connect() {}
+        connect() {
+        }
 
         toggleCard() {
             const body = this.bodyTarget;
@@ -22,9 +23,8 @@
         }
 
         copy() {
-            this.ibanTarget.select();
-            document.execCommand("copy");
-            alert('IBAN kopiran u međuspremnik.');
+            const iban = this.ibanTarget.innerText;
+            navigator.clipboard.writeText(iban).then(() => alert('IBAN kopiran u međuspremnik.'));
         }
     })
 })();
