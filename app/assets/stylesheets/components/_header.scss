@@ -3,7 +3,7 @@
   background-color: $primary-color;
   position: sticky;
   top: 0;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   z-index: 20;
 
   @media only screen and (max-width: 425px) {
@@ -132,11 +132,20 @@ a.nav-action {
 
   .mobile-menu__content {
 
+    a {
+      text-decoration: none;
+    }
+
     h2 {
       color: #FFF;
       font-size: 32px;
-      font-weight: 500;
+      font-weight: 600;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      letter-spacing: -2px;
+
+      span {
+        font-weight: 300;
+      }
     }
 
   }
@@ -189,7 +198,7 @@ a.nav-action {
 
 }
 
-#mobile-menu__success-message{
+#mobile-menu__success-message {
   margin-top: 40px;
 
   h4 {
@@ -197,7 +206,7 @@ a.nav-action {
     margin-bottom: 16px;
   }
 
-  .emoji{
+  .emoji {
     text-align: center;
     font-size: 50px;
   }

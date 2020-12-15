@@ -4,7 +4,7 @@
       <h2>doniraj<span>.hr</span></h2>
     </a>
     <div class="header__menu" id="header__menu">
-      <%= inline_svg_tag 'hamburger.svg', class: 'menu__hamburger-icon', data: {action: 'click->menu#toggleMenu'} %>
+      <%= inline_svg_tag 'hamburger.svg', class: 'menu__hamburger-icon', data: { action: 'click->menu#toggleMenu' } %>
     </div>
     <div class="header__nav-actions">
       <button class="suggestion-button--desktop nav-action">Predloži udrugu</button>
@@ -15,15 +15,18 @@
 <div class="mobile-menu mobile-menu--hidden" id="mobile-menu" data-controller="menu">
   <div class="mobile-menu__content">
     <div class="mobile-menu__header-content">
-      <h2>doniraj.hr</h2>
+      <a href="<%= root_path %>">
+        <h2>doniraj<span>.hr</span></h2>
+      </a>
       <div class="header__menu">
-        <%= inline_svg_tag 'close.svg', class: 'menu__close-icon header__menu--closed', data: {action: 'click->menu#toggleMenu'} %>
+        <%= inline_svg_tag 'close.svg', class: 'menu__close-icon header__menu--closed', data: { action: 'click->menu#toggleMenu' } %>
       </div>
     </div>
     <div id="mobile-menu__actions-wrapper">
       <div class="mobile-menu__actions">
         <div>
-          <button class="nav-action" data-action="click->menu#toggleMobileForm">Predloži udrugu</button>
+          <button class="nav-action" data-action="click->menu#toggleMobileForm">Predloži udrugu
+          </button>
         </div>
         <div>
           <a class="nav-action" href="<%= o_nama_path %>">O nama</a>
@@ -36,7 +39,8 @@
           <span>kontakt@doniraj.hr</span>
         </a>
         <span class="dot-separator"></span>
-        <a href="<%= polica_privatnosti_path %>" class="footer__navigation-item hover-text-color polica">Polica privatnosti</a>
+        <a href="<%= polica_privatnosti_path %>" class="footer__navigation-item hover-text-color polica">Polica
+          privatnosti</a>
         <span class="dot-separator"></span>
         <a href="#" class="footer__navigation-item hover-text-color">
           <%= inline_svg_tag 'facebook-icon.svg' %>
@@ -52,21 +56,24 @@
       <div class="none" id="mobile-menu__success-message">
         <h4>Hvala na prijedlogu!</h4>
         <div class="emoji">🙌</div>
-        <p class="mobile-form__info line-height-common">Podatke o predloženoj udruzi ćemo potvrditi i obraditi te ju u što kraćem roku dodati u naš sustav.</p>
+        <p class="mobile-form__info line-height-common">Podatke o predloženoj udruzi ćemo potvrditi
+          i obraditi te ju u što kraćem roku dodati u naš sustav.</p>
       </div>
       <div id="form-content">
         <h4>Predloži udrugu</h4>
-        <p class="mobile-form__info line-height-common">Pomozi nam povećati broj udruga na našoj stranici</p>
+        <p class="mobile-form__info line-height-common">Pomozi nam povećati broj udruga na našoj
+          stranici</p>
         <form action="/organizations" data-remote="true" method="post" id="mobile-menu__form">
+          <input type="hidden" name="created_via_suggestion_form" id="created_via_suggestion_form" value="true">
           <div class='form-section' data-menu-target="formSection">
-            <label for="mobile-menu__name">Naziv udruge <span class="required">*</span></label>
+            <label for="mobile-menu__name">Naziv udruge <span class="required-mobile">*</span></label>
             <input type="text" name="organization[name]" id="mobile-menu__name">
             <div class="mobile-form__error-message none" id="mobile-menu__name-error">
               <span>Ime udruge je obavezno polje.</span>
             </div>
           </div>
           <div class='form-section' data-menu-target="formSection">
-            <label for="mobile-menu__city-id">Mjesto <span class="required">*</span></label>
+            <label for="mobile-menu__city-id">Mjesto <span class="required-mobile">*</span></label>
             <div class="select-input-wrapper mobile--show">
               <select name="organization[city_id]" id="mobile-menu__city-id" data-action="change->menu#selectFormCityMobile">
                 <option value=""></option>

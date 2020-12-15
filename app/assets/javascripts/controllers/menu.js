@@ -50,22 +50,22 @@
             const nameInput = document.getElementById('mobile-menu__name');
             const cityInput = document.getElementById('mobile-menu__city-id');
 
-            const $nameError = $('#mobile-menu__name-error');
-            const $cityError = $('#mobile-menu__city-error');
+            const $nameError = document.getElementById('mobile-menu__name-error');
+            const $cityError = document.getElementById('mobile-menu__city-error')
 
             if(!nameInput.value) {
-                $nameError.show();
+                $nameError.classList.remove('none');
                 return;
             }
 
-            $nameError.hide();
+            $nameError.classList.add('none');
 
             if(!cityInput.value) {
-                $cityError.show();
+                $cityError.classList.remove('none');
                 return;
             }
 
-            $cityError.hide();
+            $cityError.classList.add('none');
 
             const $form = $('#mobile-menu__form');
             const url = $form.attr('action');
