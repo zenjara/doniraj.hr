@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
 
     if @organization.save
-      OrganizationMailer.suggestion_email.deliver_later if params[:created_via_suggestion_form]
+      # OrganizationMailer.with(organization: @organization).suggestion_email.deliver_later if params[:created_via_suggestion_form]
       return render json: {}, status: :created
     end
 
