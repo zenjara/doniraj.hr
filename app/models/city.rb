@@ -9,4 +9,6 @@
 #
 class City < ApplicationRecord
   has_many :organizations, dependent: :nullify
+
+  scope :with_organization, -> { where(id: Organization.verified.pluck(:city_id).uniq) }
 end
