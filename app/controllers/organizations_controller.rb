@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @pagy, @organizations = pagy(Organization.includes(:city).order('LOWER(name)').verified)
   end
