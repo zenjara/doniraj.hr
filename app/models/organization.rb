@@ -37,18 +37,18 @@ class Organization < ApplicationRecord
 
   def generate_barcode
     "HRVHUB30\nHRK\n" +
-        "000000000000000\n" +
-        "\n" +
-        "\n" +
-        "\n" +
-        "#{name}\n" +
-        "#{address}\n" +
-        "#{city.name}\n" +
-        "#{iban}\n" +
-        "\n" +
-        "\n" +
-        "CHAR\n" +
-        "Donacija preko doniraj.hr web stranice\n";
+      "000000000000000\n" +
+      "\n" +
+      "\n" +
+      "\n" +
+      "#{name}\n" +
+      "#{address}\n" +
+      "#{city.name}\n" +
+      "#{iban}\n" +
+      "HR00\n" +
+      "#{Date.current.strftime("%d%m%Y")}\n" +
+      "CHAR\n" +
+      "Donacija preko doniraj.hr web stranice\n";
   end
 
   private
