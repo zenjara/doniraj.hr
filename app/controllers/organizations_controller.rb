@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def index
-    @pagy, @organizations = pagy(Organization.includes(:city).order('LOWER(name)').verified)
+    @pagy, @organizations = pagy(Organization.includes(:city).order('highlighted DESC, LOWER(name)').verified)
   end
 
   def new
