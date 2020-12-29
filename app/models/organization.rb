@@ -36,6 +36,8 @@ class Organization < ApplicationRecord
   attribute :created_via_suggestion_form, :boolean, default: false
 
   def generate_barcode
+    return custom_barcode_petrinja if iban == 'HR6923400091511555516'
+
     "HRVHUB30\nHRK\n" +
       "000000000000000\n" +
       "\n" +
@@ -52,6 +54,22 @@ class Organization < ApplicationRecord
   end
 
   private
+
+  def custom_barcode_petrinja
+    "HRVHUB30\nHRK\n" +
+      "000000000000000\n" +
+      "\n" +
+      "\n" +
+      "\n" +
+      "#{name}\n" +
+      "#{address}\n" +
+      "#{city.name}\n" +
+      "#{iban}\n" +
+      "HR00\n" +
+      "770\n" +
+      "CHAR\n" +
+      "Donacija za pomoc Petrinji i Sisku. Uplaceno preko doniraj.hr web stranice\n";
+  end
 
   def send_suggestion_notification_email
     return unless created_via_suggestion_form
