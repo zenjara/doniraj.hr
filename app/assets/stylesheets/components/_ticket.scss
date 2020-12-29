@@ -6,6 +6,24 @@
   box-shadow: 0 6px 24px rgba(38, 50, 56, 0.1);
   transition: all 0.2s ease;
 
+  &.ticket--highlighted {
+    border: 2px solid $primary-color;
+    background: repeating-linear-gradient(45deg, #fff 0px 1.4%, #1f997b08 1.4% 2.8%);
+    box-shadow: 0 6px 24px rgba($primary-color, 0.1);
+    position: relative;
+
+    .highlight-icon {
+      color: #d01717;
+      height: 48px;
+      width: 48px;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      transform: rotate(-13deg)
+    }
+
+  }
+
   &:last-child {
     margin-bottom: 0;
   }

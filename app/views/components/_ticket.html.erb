@@ -1,6 +1,9 @@
-<div class="ticket" data-controller="ticket">
+<div class="ticket <%= organization.highlight ? 'ticket--highlighted' : nil %>" data-controller="ticket">
   <input type="hidden" data-ticket-target="organizationId" value="<%= organization.id %>"/>
   <input type="hidden" data-ticket-target="barcode" value="<%= organization.generate_barcode %>"/>
+  <% if organization.highlight %>
+    <%= inline_svg_tag 'heart-filled-icon.svg', class: 'highlight-icon' %>
+  <% end %>
   <div class="ticket__content">
     <div class="ticket__header hover-text-color" data-action="click->ticket#toggleCard">
       <h4 class="ticket__name">
